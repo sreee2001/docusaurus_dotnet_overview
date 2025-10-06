@@ -1,14 +1,20 @@
-### Dependency Injection
+---
+slug: dependency_injection
+title: Dependency Injection (DI)
+tags: [dotnet, core, dependency injection, DI, IOC]
+---
 
-#### Short Introduction
+# Dependency Injection
+
+## Short Introduction
 
 Dependency Injection is a design pattern that implements Inversion of Control for resolving dependencies, making applications more modular and testable.
 
-#### Official Definition
+## Official Definition
 
 Dependency Injection (DI) is a technique for achieving Inversion of Control (IoC) between classes and their dependencies, where dependencies are provided to a class rather than created by the class itself.
 
-#### Usage
+## Usage
 
 ```csharp
 // Service interface
@@ -43,20 +49,20 @@ builder.Services.AddSingleton<IMemoryCache, MemoryCache>();
 builder.Services.AddTransient<IProductService, ProductService>();
 ```
 
-#### Service Lifetimes
+## Service Lifetimes
 
 - **Singleton**: Created once and shared
 - **Scoped**: Created once per request
 - **Transient**: Created every time requested
 
-#### Use Cases
+## Use Cases
 
 - Loose coupling between components
 - Unit testing with mock dependencies
 - Configuration injection
 - Cross-cutting concerns
 
-#### Sample Usage
+## Sample Usage
 
 ```csharp
 // Controller with DI
@@ -99,5 +105,3 @@ public class OrdersController : ControllerBase
     }
 }
 ```
-
----

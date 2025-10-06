@@ -1,16 +1,22 @@
-### .NET Framework vs .NET Core vs .NET 5/6/7/8+
+---
+slug: dotnet_versions
+title: .NET versions
+tags: [dotnet, version]
+---
 
-#### Short Introduction
+# .NET Framework vs .NET Core vs .NET 5/6/7/8+
+
+## Short Introduction
 
 The .NET ecosystem has evolved from the Windows-only .NET Framework to the cross-platform .NET Core, and finally unified under .NET 5+ (dropping "Core" from the name).
 
-#### Official Definition
+## Official Definition
 
 - **.NET Framework**: The original Windows-only implementation of .NET, first released in 2002
 - **.NET Core**: Cross-platform, open-source implementation of .NET, designed for modern cloud workloads
 - **.NET 5+**: The unified platform that combines .NET Framework and .NET Core into a single product
 
-#### Usage
+## Usage
 
 ```csharp
 // .NET 8 (latest) project file
@@ -23,7 +29,7 @@ The .NET ecosystem has evolved from the Windows-only .NET Framework to the cross
 </Project>
 ```
 
-#### Use Cases
+## Use Cases
 
 - **Web applications**: ASP.NET Core for modern web apps
 - **APIs**: RESTful services and microservices
@@ -32,7 +38,7 @@ The .NET ecosystem has evolved from the Windows-only .NET Framework to the cross
 - **Cloud applications**: Azure-native applications
 - **IoT**: Lightweight applications for edge devices
 
-#### When to Use / When Not to Use
+## When to Use / When Not to Use
 
 **Use .NET Core/.NET 5+ when:**
 
@@ -49,9 +55,9 @@ The .NET ecosystem has evolved from the Windows-only .NET Framework to the cross
 - Using technologies not ported to .NET Core
 - Enterprise applications with specific Windows dependencies
 
-#### Market Alternatives, Adaptation & Pros/Cons
+## Market Alternatives, Adaptation & Pros/Cons
 
-**Alternatives:**
+### Alternatives
 
 - Java Spring Boot
 - Node.js with Express
@@ -59,14 +65,14 @@ The .NET ecosystem has evolved from the Windows-only .NET Framework to the cross
 - Ruby on Rails
 - Go with Gin/Echo
 
-**Market Adoption:**
+### Market Adoption
 
 - High enterprise adoption
 - Strong cloud presence (especially Azure)
 - Growing open-source community
 - Microsoft's primary development platform
 
-**Pros:**
+### Pros
 
 - Cross-platform compatibility
 - High performance
@@ -75,14 +81,14 @@ The .NET ecosystem has evolved from the Windows-only .NET Framework to the cross
 - Rich ecosystem
 - Strong Microsoft support
 
-**Cons:**
+### Cons
 
 - Microsoft ecosystem lock-in (perceived)
 - Learning curve for new developers
 - Licensing costs for some Microsoft tools
 - Memory usage higher than some alternatives
 
-#### Sample Usage
+## Sample Usage
 
 ```csharp
 // Program.cs - .NET 8 minimal API
@@ -109,5 +115,3 @@ app.MapGet("/hello", () => "Hello World!");
 
 app.Run();
 ```
-
----

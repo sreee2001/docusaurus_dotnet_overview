@@ -1,14 +1,20 @@
-### Logging
+---
+slug: logging
+title: Logging
+tags: [dotnet, core, logging, DI]
+---
 
-#### Short Introduction
+# Logging
+
+## Short Introduction
 
 Logging in .NET Core provides a built-in, extensible logging framework that supports multiple logging providers and structured logging.
 
-#### Official Definition
+## Official Definition
 
 The .NET logging system provides a logging API that works with a variety of built-in and third-party logging providers, enabling developers to log messages with different severity levels.
 
-#### Usage
+## Usage
 
 ```csharp
 // Program.cs - Configure logging
@@ -22,7 +28,7 @@ builder.Host.UseSerilog((context, configuration) =>
     configuration.ReadFrom.Configuration(context.Configuration));
 ```
 
-#### Log Levels
+## Log Levels
 
 - **Trace**: Very detailed logs
 - **Debug**: Debug information
@@ -31,7 +37,7 @@ builder.Host.UseSerilog((context, configuration) =>
 - **Error**: Error messages
 - **Critical**: Critical errors
 
-#### Use Cases
+## Use Cases
 
 - Application monitoring
 - Debugging and troubleshooting
@@ -39,7 +45,7 @@ builder.Host.UseSerilog((context, configuration) =>
 - Performance monitoring
 - Security monitoring
 
-#### Sample Usage
+## Sample Usage
 
 ```csharp
 public class OrderService : IOrderService
@@ -89,5 +95,3 @@ public class OrderService : IOrderService
 Log.Information("User {UserId} placed order {OrderId} for {Amount:C}",
     userId, orderId, totalAmount);
 ```
-
----

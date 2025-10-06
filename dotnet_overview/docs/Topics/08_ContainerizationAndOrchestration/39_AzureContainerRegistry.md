@@ -1,16 +1,22 @@
-## 39. Azure Container Registry
+---
+slug: azure_container_registry
+title: Azure Container Registry
+tags: [dotnet, containers, azure, registry, acr, docker]
+---
 
-### Short Introduction
+# Azure Container Registry
+
+## Short Introduction
 
 Azure Container Registry (ACR) is a managed, private Docker registry service based on the open-source Docker Registry 2.0. It provides secure, scalable storage for container images and related artifacts, with built-in security scanning, geo-replication, and integration with Azure services and DevOps pipelines.
 
-### Official Definition
+## Official Definition
 
 Azure Container Registry is a managed, private Docker registry service that allows you to build, store, and manage container images and related artifacts in a private registry for all types of container deployments. It's based on the open-source Docker Registry 2.0.
 
-### Setup/Usage with .NET 8+ Code
+## Setup/Usage with .NET 8+ Code
 
-**Create ACR using Azure CLI:**
+### Create ACR using Azure CLI
 
 ```bash
 # Create resource group
@@ -31,7 +37,7 @@ ACR_LOGIN_SERVER=$(az acr show --name hotelmanagementacr --query loginServer --o
 echo $ACR_LOGIN_SERVER
 ```
 
-**Build and Push Images:**
+### Build and Push Images
 
 ```bash
 # Build image locally and push
@@ -52,7 +58,7 @@ az acr import \
   --image dotnet/aspnet:8.0
 ```
 
-**ACR Tasks for Automated Builds:**
+### ACR Tasks for Automated Builds
 
 ```bash
 # Create ACR task for automated builds
@@ -73,7 +79,7 @@ az acr task run --registry hotelmanagementacr --name hotel-api-build-task
 az acr task list-runs --registry hotelmanagementacr --output table
 ```
 
-### Use Cases
+## Use Cases
 
 - **Private Container Storage**: Secure storage for proprietary container images
 - **CI/CD Integration**: Automated builds and deployments in DevOps pipelines
@@ -82,9 +88,9 @@ az acr task list-runs --registry hotelmanagementacr --output table
 - **Geo-replication**: Global distribution of container images
 - **Webhook Integration**: Trigger deployments on image updates
 
-### When to Use vs When Not to Use
+## When to Use vs When Not to Use
 
-**Use Azure Container Registry when:**
+### Use Azure Container Registry when
 
 - Need private, secure container image storage
 - Building CI/CD pipelines with Azure services
@@ -93,7 +99,7 @@ az acr task list-runs --registry hotelmanagementacr --output table
 - Working with Azure Kubernetes Service or Container Apps
 - Managing multiple container images and versions
 
-**Consider alternatives when:**
+### Consider alternatives when
 
 - Using public images only (Docker Hub sufficient)
 - Working primarily with other cloud providers
@@ -101,9 +107,9 @@ az acr task list-runs --registry hotelmanagementacr --output table
 - Budget constraints for small projects
 - No security or compliance requirements
 
-### Market Alternatives & Pros/Cons
+## Market Alternatives & Pros/Cons
 
-**Alternatives:**
+### Alternatives:
 
 - **Amazon ECR**: AWS Elastic Container Registry
 - **Google Container Registry**: GCP container registry
@@ -112,7 +118,7 @@ az acr task list-runs --registry hotelmanagementacr --output table
 - **JFrog Artifactory**: Universal artifact repository
 - **GitLab Container Registry**: Integrated with GitLab CI/CD
 
-**Pros:**
+### Pros:
 
 - Integrated with Azure ecosystem
 - Built-in security scanning and compliance
@@ -121,7 +127,7 @@ az acr task list-runs --registry hotelmanagementacr --output table
 - Azure Active Directory integration
 - Webhook and event integration
 
-**Cons:**
+### Cons:
 
 - Azure-specific (vendor lock-in)
 - Cost can be higher than alternatives
@@ -129,9 +135,9 @@ az acr task list-runs --registry hotelmanagementacr --output table
 - Requires Azure expertise
 - Storage costs for large images
 
-### Complete Runnable Sample
+## Complete Runnable Sample
 
-**Complete ACR Setup with Bicep:**
+### Complete ACR Setup with Bicep
 
 ```bicep
 // acr-setup.bicep
@@ -196,7 +202,7 @@ output acrName string = acr.name
 output acrId string = acr.id
 ```
 
-**GitHub Actions with ACR Integration:**
+### GitHub Actions with ACR Integration
 
 ```yaml
 # .github/workflows/acr-build-deploy.yml
@@ -314,7 +320,7 @@ jobs:
           sarif_file: "trivy-results.sarif"
 ```
 
-**ACR Integration with Kubernetes:**
+### ACR Integration with Kubernetes
 
 ```yaml
 # k8s/acr-integration.yaml
@@ -354,7 +360,7 @@ spec:
               value: "Production"
 ```
 
-**PowerShell Script for ACR Management:**
+### PowerShell Script for ACR Management
 
 ```powershell
 # acr-management.ps1
@@ -443,7 +449,7 @@ catch {
 }
 ```
 
-**Deployment Commands:**
+### Deployment Commands
 
 ```bash
 # Deploy ACR with Bicep

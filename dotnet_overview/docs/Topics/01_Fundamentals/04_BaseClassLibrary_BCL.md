@@ -1,14 +1,20 @@
-### Base Class Library (BCL)
+---
+slug: base_class_library
+title: Base Class Library (BCL)
+tags: [dotnet, bcl]
+---
 
-#### Short Introduction
+# Base Class Library (BCL)
+
+## Short Introduction
 
 The Base Class Library provides fundamental functionality for .NET applications, including basic data types, file I/O, collections, and more.
 
-#### Official Definition
+## Official Definition
 
 The Base Class Library (BCL) is a standard library that provides basic functionality for .NET applications, including primitive data types, collections, file I/O, string manipulation, and other essential functionality.
 
-#### Usage
+## Usage
 
 ```csharp
 // Common BCL usage examples
@@ -35,12 +41,10 @@ string upper = text.ToUpper();
 string[] parts = text.Split(' ');
 ```
 
-#### Use Cases
+## Use Cases
 
 - Basic application functionality
 - Data manipulation
 - File operations
 - Network operations
 - Threading and async operations
-
----

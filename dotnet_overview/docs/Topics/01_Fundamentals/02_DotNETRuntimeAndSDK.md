@@ -1,15 +1,21 @@
-### .NET Runtime and SDK
+---
+slug: runtime_vs_sdk
+title: .NET Runtime and SDK
+tags: [dotnet, runtime, sdk]
+---
 
-#### Short Introduction
+# .NET Runtime and SDK
+
+## Short Introduction
 
 The .NET Runtime executes .NET applications, while the SDK provides tools for developing, building, and publishing .NET applications.
 
-#### Official Definition
+## Official Definition
 
 - **.NET Runtime**: The execution environment that runs .NET applications
 - **.NET SDK**: Software Development Kit containing compiler, tools, and runtime for development
 
-#### Usage
+## Usage
 
 ```bash
 # Check installed versions
@@ -23,12 +29,12 @@ dotnet new mvc -n MyWebApp
 dotnet new console -n MyConsoleApp
 ```
 
-#### Use Cases
+## Use Cases
 
 - **Runtime**: Production servers running .NET applications
 - **SDK**: Development machines, CI/CD pipelines, build servers
 
-#### When to Use / When Not to Use
+## When to Use / When Not to Use
 
 **Runtime only:**
 
@@ -42,14 +48,14 @@ dotnet new console -n MyConsoleApp
 - Build servers
 - CI/CD pipelines
 
-#### Market Alternatives
+## Market Alternatives
 
 - Java JDK/JRE
 - Node.js runtime
 - Python interpreter
 - Go compiler/runtime
 
-#### Sample Usage
+## Sample Usage
 
 ```dockerfile
 # Multi-stage Docker build
@@ -65,5 +71,3 @@ WORKDIR /app
 COPY --from=build /app/out .
 ENTRYPOINT ["dotnet", "MyApp.dll"]
 ```
-
----

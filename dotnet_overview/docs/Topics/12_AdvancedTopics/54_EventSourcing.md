@@ -1,14 +1,14 @@
 ## 54. Event Sourcing
 
-### Short Introduction
+## Short Introduction
 
 Event Sourcing is an architectural pattern where state changes are stored as a sequence of events rather than storing just the current state. Instead of updating records in place, every change is appended as an event to an immutable log, allowing the system to reconstruct any past state and providing a complete audit trail.
 
-### Official Definition
+## Official Definition
 
 Event Sourcing ensures that all changes to application state are stored as a sequence of events. Not just can we query these events, we can also use the event log to reconstruct past states, and as a foundation to automatically adjust the state to cope with retroactive changes.
 
-### Setup/Usage with .NET 8+ Code
+## Setup/Usage with .NET 8+ Code
 
 **Installation:**
 
@@ -384,7 +384,7 @@ public class BookingProjectionHandler :
 - **Debugging and Analytics**: Rich historical data for analysis
 - **Regulatory Compliance**: Immutable record of business events
 
-### When to Use vs When Not to Use
+## When to Use vs When Not to Use
 
 **Use Event Sourcing when:**
 
@@ -406,7 +406,7 @@ public class BookingProjectionHandler :
 
 ### Market Alternatives & Pros/Cons
 
-**Alternatives:**
+### Alternatives:
 
 - **Change Data Capture (CDC)**: Database-level change tracking
 - **Audit Tables**: Traditional audit logging
@@ -414,7 +414,7 @@ public class BookingProjectionHandler :
 - **CQRS without Event Sourcing**: Separate read/write models
 - **Traditional State Storage**: Standard CRUD operations
 
-**Pros:**
+### Pros:
 
 - Complete audit trail
 - Natural fit for event-driven architecture
@@ -423,7 +423,7 @@ public class BookingProjectionHandler :
 - Scalable event processing
 - Strong consistency guarantees
 
-**Cons:**
+### Cons:
 
 - Increased complexity
 - Event schema evolution challenges

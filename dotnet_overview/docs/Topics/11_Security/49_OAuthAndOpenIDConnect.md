@@ -4,7 +4,7 @@
 
 OAuth 2.0 is an authorization framework that enables applications to obtain limited access to user accounts, while OpenID Connect (OIDC) is an identity layer on top of OAuth 2.0 that provides authentication. Together, they form the foundation of modern web application security.
 
-### Official Definition
+## Official Definition
 
 OAuth 2.0 is a protocol that allows third-party services to exchange web resources on behalf of a user without exposing their password. OpenID Connect 1.0 is a simple identity layer on top of the OAuth 2.0 protocol, allowing clients to verify the identity of the end-user and obtain basic profile information.
 
@@ -88,7 +88,7 @@ app.UseAuthorization();
 - Mobile application authentication
 - Microservices security
 
-### When to Use vs When Not to Use
+## When to Use vs When Not to Use
 
 **Use When:**
 
@@ -110,7 +110,7 @@ app.UseAuthorization();
 
 ### Market Alternatives & Adoption
 
-**Alternatives:**
+### Alternatives:
 
 - SAML 2.0 (older enterprise standard)
 - Custom JWT implementation
@@ -122,7 +122,7 @@ app.UseAuthorization();
 
 ### Pros and Cons
 
-**Pros:**
+### Pros:
 
 - Industry standard protocol
 - Secure token-based authentication
@@ -131,7 +131,7 @@ app.UseAuthorization();
 - Excellent third-party support
 - Scalable for distributed systems
 
-**Cons:**
+### Cons:
 
 - Complex implementation
 - Multiple flow types can be confusing

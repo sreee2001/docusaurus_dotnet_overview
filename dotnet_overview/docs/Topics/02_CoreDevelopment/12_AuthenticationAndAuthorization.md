@@ -1,18 +1,24 @@
-### Authentication & Authorization
+---
+slug: authentication_authorization
+title: Authentication & Authorization
+tags: [dotnet, core, authentication, authorization]
+---
 
-#### Short Introduction
+# Authentication & Authorization
+
+## Short Introduction
 
 - Authentication and Authorization are fundamental security concepts in .NET Core applications.
 - Authentication verifies user identity, "who you are"
 - Authorization determines what authenticated users can access, "what you can do.".
 - ASP.NET Core provides comprehensive built-in support for both.
 
-#### Official Definition
+## Official Definition
 
 - Authentication is the process of determining whether someone or something is who or what it declares to be.
 - Authorization is the process of giving someone permission to do or have something.
 
-#### Usage
+## Usage
 
 ```bash
 # Install required packages
@@ -108,14 +114,14 @@ app.UseAuthentication();
 app.UseAuthorization();
 ```
 
-#### Authentication Schemes
+## Authentication Schemes
 
 - **Cookie Authentication**: Traditional web applications
 - **JWT Bearer**: APIs and SPAs
 - **Identity Server**: Enterprise SSO
 - **OAuth 2.0**: Third-party providers
 
-#### Use Cases
+## Use Cases
 
 - User login/logout systems
 - API security with JWT tokens
@@ -125,9 +131,9 @@ app.UseAuthorization();
 - Social login integration
 - Enterprise single sign-on (SSO)
 
-### When to Use vs When Not to Use
+## When to Use vs When Not to Use
 
-**Use When:**
+### Use When:
 
 - Application requires user accounts
 - Different user privilege levels needed
@@ -135,7 +141,7 @@ app.UseAuthorization();
 - Compliance requirements (GDPR, HIPAA)
 - API security is required
 
-**Don't Use When:**
+### Don't Use When:
 
 - Simple public applications
 - No user-specific functionality
@@ -143,9 +149,9 @@ app.UseAuthorization();
 - Very basic internal tools
 - Proof-of-concept applications
 
-### Market Alternatives & Adoption
+## Market Alternatives & Adoption
 
-**Alternatives:**
+### Alternatives:
 
 - Auth0 (SaaS identity platform)
 - Azure Active Directory B2C
@@ -154,11 +160,13 @@ app.UseAuthorization();
 - Okta
 - Custom JWT implementation
 
-**Market Position:** .NET Identity is the de-facto standard for .NET applications with extensive enterprise adoption.
+### Market Position:
 
-### Pros and Cons
+.NET Identity is the de-facto standard for .NET applications with extensive enterprise adoption.
 
-**Pros:**
+## Pros and Cons
+
+### Pros:
 
 - Comprehensive built-in solution
 - Highly configurable
@@ -167,7 +175,7 @@ app.UseAuthorization();
 - Good performance
 - Integrates well with EF Core
 
-**Cons:**
+### Cons:
 
 - Can be complex for simple scenarios
 - Steep learning curve for advanced features
@@ -175,7 +183,7 @@ app.UseAuthorization();
 - UI scaffolding is basic
 - Migration complexity
 
-#### Sample Usage
+## Sample Usage
 
 ```csharp
 // JWT service

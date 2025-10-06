@@ -1,14 +1,14 @@
 ## 52. gRPC
 
-### Short Introduction
+## Short Introduction
 
 gRPC is a modern, open-source, high-performance Remote Procedure Call (RPC) framework that can run anywhere. It uses HTTP/2 for transport, Protocol Buffers as the interface description language, and provides features like authentication, bidirectional streaming, flow control, blocking or nonblocking bindings, and cancellation and timeouts.
 
-### Official Definition
+## Official Definition
 
 gRPC is a language-agnostic, high-performance Remote Procedure Call (RPC) framework. gRPC uses HTTP/2 as its transport protocol and Protocol Buffers (protobuf) as its message format, enabling efficient communication between services in distributed systems.
 
-### Setup/Usage with .NET 8+ Code
+## Setup/Usage with .NET 8+ Code
 
 **Installation:**
 
@@ -328,7 +328,7 @@ await foreach (var booking in streamingCall.ResponseStream.ReadAllAsync())
 - **IoT Applications**: Device-to-cloud communication with binary protocols
 - **Multi-language Environments**: Language-agnostic service interfaces
 
-### When to Use vs When Not to Use
+## When to Use vs When Not to Use
 
 **Use gRPC when:**
 
@@ -349,7 +349,7 @@ await foreach (var booking in streamingCall.ResponseStream.ReadAllAsync())
 
 ### Market Alternatives & Pros/Cons
 
-**Alternatives:**
+### Alternatives:
 
 - **REST APIs**: HTTP-based, human-readable, widely supported
 - **Apache Thrift**: Cross-language RPC framework
@@ -358,7 +358,7 @@ await foreach (var booking in streamingCall.ResponseStream.ReadAllAsync())
 - **JSON-RPC**: Lightweight remote procedure call protocol
 - **WebSockets**: Real-time bidirectional communication
 
-**Pros:**
+### Pros:
 
 - High performance and efficiency
 - Strong typing with Protocol Buffers
@@ -367,7 +367,7 @@ await foreach (var booking in streamingCall.ResponseStream.ReadAllAsync())
 - HTTP/2 benefits (multiplexing, compression)
 - Excellent tooling and code generation
 
-**Cons:**
+### Cons:
 
 - Limited browser support
 - Learning curve for Protocol Buffers

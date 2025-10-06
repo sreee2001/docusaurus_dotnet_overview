@@ -1,14 +1,20 @@
-### Garbage Collection
+---
+slug: garbage_collection
+title: Garbage Collection
+tags: [dotnet, gc, garbage collection, memory, performance]
+---
 
-#### Short Introduction
+# Garbage Collection
+
+## Short Introduction
 
 Garbage Collection (GC) in .NET automatically manages memory allocation and deallocation, freeing developers from manual memory management.
 
-#### Official Definition
+## Official Definition
 
 Garbage Collection is an automatic memory management feature of .NET that periodically identifies and frees memory that is no longer being used by the application.
 
-#### Usage
+## Usage
 
 ```csharp
 // GC is automatic, but you can interact with it
@@ -46,7 +52,7 @@ GC.Collect();
 GC.WaitForPendingFinalizers();
 ```
 
-#### When to Use / When Not to Use
+## When to Use / When Not to Use
 
 **Generally avoid manual GC calls except:**
 
@@ -54,16 +60,14 @@ GC.WaitForPendingFinalizers();
 - After large object disposal
 - Performance testing scenarios
 
-**Pros:**
+### Pros
 
 - Automatic memory management
 - Prevents memory leaks
 - Optimized for application patterns
 
-**Cons:**
+### Cons
 
 - Non-deterministic timing
 - Can cause pause times
 - Less control over memory layout
-
----

@@ -1,14 +1,20 @@
-### Web APIs
+---
+slug: web_api
+title: Web API's
+tags: [dotnet, core, web_api, architecture, pattern, microservices]
+---
 
-#### Short Introduction
+# Web APIs
+
+## Short Introduction
 
 Web APIs in ASP.NET Core provide a framework for building HTTP-based services that can be consumed by various clients including web applications, mobile apps, and other services.
 
-#### Official Definition
+## Official Definition
 
 ASP.NET Core Web API is a framework for building HTTP services that can reach a broad range of clients, including browsers, mobile devices, and traditional desktop applications.
 
-#### Usage
+## Usage
 
 ```csharp
 // API Controller
@@ -121,7 +127,7 @@ public class ProductsController : ControllerBase
 }
 ```
 
-#### DTOs (Data Transfer Objects)
+## DTOs (Data Transfer Objects)
 
 ```csharp
 public class ProductDto
@@ -170,7 +176,7 @@ public class UpdateProductDto
 }
 ```
 
-#### API Documentation with Swagger
+## API Documentation with Swagger
 
 ```csharp
 // Program.cs
@@ -200,12 +206,10 @@ if (app.Environment.IsDevelopment())
 }
 ```
 
-#### Use Cases
+## Use Cases
 
 - Mobile app backends
 - Microservices
 - Integration with third-party systems
 - Single Page Applications (SPAs)
 - Inter-service communication
-
----

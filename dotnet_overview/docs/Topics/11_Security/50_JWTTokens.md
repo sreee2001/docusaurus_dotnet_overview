@@ -4,7 +4,7 @@
 
 JSON Web Tokens (JWT) are a compact, URL-safe means of representing claims to be transferred between two parties. JWTs are commonly used for authentication and information exchange in modern web applications and APIs.
 
-### Official Definition
+## Official Definition
 
 JWT is an open standard (RFC 7519) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. This information can be verified and trusted because it is digitally signed using a secret (HMAC) or a public/private key pair (RSA or ECDSA).
 
@@ -78,7 +78,7 @@ app.UseAuthorization();
 - Information exchange between services
 - Session management alternative
 
-### When to Use vs When Not to Use
+## When to Use vs When Not to Use
 
 **Use When:**
 
@@ -100,7 +100,7 @@ app.UseAuthorization();
 
 ### Market Alternatives & Adoption
 
-**Alternatives:**
+### Alternatives:
 
 - Session-based authentication
 - OAuth 2.0 access tokens
@@ -112,7 +112,7 @@ app.UseAuthorization();
 
 ### Pros and Cons
 
-**Pros:**
+### Pros:
 
 - Stateless and scalable
 - Self-contained with claims
@@ -121,7 +121,7 @@ app.UseAuthorization();
 - Compact size
 - Cryptographically signed
 
-**Cons:**
+### Cons:
 
 - Cannot be revoked easily
 - Token size can grow large

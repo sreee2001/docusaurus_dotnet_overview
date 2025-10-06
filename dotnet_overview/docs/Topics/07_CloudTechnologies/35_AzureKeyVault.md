@@ -1,14 +1,22 @@
-## 36. Azure Key Vault
+---
+slug: azure_key_vault
+title: Azure Key Vault
+tags: [dotnet, azure, key, vault, secure, storage, secrets, certificates]
+---
 
-### Short Introduction + Official Definition
+# Azure Key Vault
+
+## Short Introduction
 
 Azure Key Vault is a cloud service for securely storing and accessing secrets, keys, and certificates. It provides centralized storage for application secrets with hardware security module (HSM) protection and fine-grained access control.
 
-**Official Definition**: "Azure Key Vault is a tool for securely storing and accessing secrets. A secret is anything that you want to tightly control access to, such as API keys, passwords, certificates, or cryptographic keys."
+## Official Definition
 
-### Setup and Deployment Steps
+"Azure Key Vault is a tool for securely storing and accessing secrets. A secret is anything that you want to tightly control access to, such as API keys, passwords, certificates, or cryptographic keys."
 
-**Azure CLI Setup**:
+## Setup and Deployment Steps
+
+### Azure CLI Setup
 
 ```bash
 # Create Key Vault
@@ -27,7 +35,7 @@ az webapp identity assign --name mywebapp --resource-group myResourceGroup
 az keyvault set-policy --name mykeyvault --object-id <managed-identity-object-id> --secret-permissions get list
 ```
 
-**Bicep Template**:
+### Bicep Template
 
 ```bicep
 resource keyVault 'Microsoft.KeyVault/vaults@2023-02-01' = {
@@ -55,9 +63,9 @@ resource secret 'Microsoft.KeyVault/vaults/secrets@2023-02-01' = {
 }
 ```
 
-### Typical Usage and Integration with .NET Apps
+## Typical Usage and Integration with .NET Apps
 
-**NuGet Packages**:
+### NuGet Packages
 
 ```xml
 <PackageReference Include="Azure.Extensions.AspNetCore.Configuration.Secrets" Version="1.3.0" />
@@ -65,7 +73,7 @@ resource secret 'Microsoft.KeyVault/vaults/secrets@2023-02-01' = {
 <PackageReference Include="Azure.Security.KeyVault.Secrets" Version="4.5.0" />
 ```
 
-**Configuration Integration**:
+### Configuration Integration
 
 ```csharp
 // Program.cs
@@ -91,7 +99,7 @@ if (!builder.Environment.IsDevelopment())
 var app = builder.Build();
 ```
 
-**Direct Key Vault Access Service**:
+### Direct Key Vault Access Service
 
 ```csharp
 using Azure.Security.KeyVault.Secrets;
@@ -163,7 +171,7 @@ public class KeyVaultService : IKeyVaultService
 }
 ```
 
-**Using Secrets in Controllers**:
+### Using Secrets in Controllers
 
 ```csharp
 [ApiController]
@@ -193,7 +201,7 @@ public class ConfigController : ControllerBase
 }
 ```
 
-**Certificate Management**:
+### Certificate Management
 
 ```csharp
 using Azure.Security.KeyVault.Certificates;
@@ -215,7 +223,7 @@ public class CertificateService
 }
 ```
 
-### Use Cases
+## Use Cases
 
 - Secure storage of connection strings and API keys
 - Certificate management for SSL/TLS
@@ -224,9 +232,9 @@ public class CertificateService
 - OAuth client secrets
 - Configuration secrets for different environments
 
-### When to Use vs Alternatives
+## When to Use vs Alternatives
 
-**Use Azure Key Vault when**:
+### Use Azure Key Vault when
 
 - Centralized secret management across multiple applications
 - Compliance requirements for secret storage
@@ -234,23 +242,23 @@ public class CertificateService
 - Hardware security module (HSM) protection needed
 - Audit logging of secret access required
 
-**Don't use when**:
+### Don't use when
 
 - Simple applications with few secrets
 - Cost optimization is critical for small projects
 - Secrets don't need centralized management
 - Non-Azure environments primarily
 
-**Alternatives**:
+### Alternatives
 
 - **Azure**: App Configuration (for non-secret config), Azure Managed HSM
 - **AWS**: AWS Secrets Manager, AWS Systems Manager Parameter Store
 - **GCP**: Secret Manager
 - **Open Source**: HashiCorp Vault, Kubernetes Secrets
 
-### Market Pros/Cons and Cost Considerations
+## Market Pros/Cons and Cost Considerations
 
-**Pros**:
+### Pros
 
 - Hardware security module (HSM) backing
 - Integration with Azure Active Directory
@@ -258,14 +266,14 @@ public class CertificateService
 - Comprehensive audit logging
 - Managed identities eliminate credential management
 
-**Cons**:
+### Cons
 
 - Additional complexity for simple scenarios
 - Network dependency for secret retrieval
 - Cost for high-volume secret operations
 - Learning curve for proper implementation
 
-**Cost Considerations**:
+### Cost Considerations
 
 - Standard tier: ~$0.03 per 10,000 transactions
 - Premium tier (HSM): ~$1.00 per 10,000 transactions + $5/hour per HSM

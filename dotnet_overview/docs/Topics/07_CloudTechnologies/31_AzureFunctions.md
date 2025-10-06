@@ -1,14 +1,22 @@
-## 31. Azure Functions
+---
+slug: azure_functions
+title: Azure Functions
+tags: [dotnet, azure, functions, azure_functions]
+---
 
-### Short Introduction + Official Definition
+# Azure Functions
+
+## Short Introduction
 
 Azure Functions is a serverless compute service that enables you to run event-triggered code without managing infrastructure. It automatically scales based on demand and you only pay for the compute time you consume.
 
-**Official Definition**: "Azure Functions is a serverless solution that allows you to write less code, maintain less infrastructure, and save on costs. Instead of worrying about deploying and maintaining servers, the cloud infrastructure provides all the up-to-date resources needed to keep your applications running."
+## Official Definition
 
-### Setup and Deployment Steps
+"Azure Functions is a serverless solution that allows you to write less code, maintain less infrastructure, and save on costs. Instead of worrying about deploying and maintaining servers, the cloud infrastructure provides all the up-to-date resources needed to keep your applications running."
 
-**Azure CLI Setup**:
+## Setup and Deployment Steps
+
+### Azure CLI Setup
 
 ```bash
 # Create storage account (required for Functions)
@@ -18,7 +26,7 @@ az storage account create --name mystorageaccount --location eastus --resource-g
 az functionapp create --resource-group myResourceGroup --consumption-plan-location eastus --runtime dotnet-isolated --runtime-version 8 --functions-version 4 --name myFunctionApp --storage-account mystorageaccount
 ```
 
-**Local Development Setup**:
+### Local Development Setup
 
 ```bash
 # Install Azure Functions Core Tools
@@ -32,9 +40,9 @@ cd MyFunctionProject
 func new --name HttpExample --template "HTTP trigger"
 ```
 
-### Typical Usage and Integration with .NET Apps
+## Typical Usage and Integration with .NET Apps
 
-**HTTP Trigger Function**:
+### HTTP Trigger Function
 
 ```csharp
 using Microsoft.Azure.Functions.Worker;
@@ -70,7 +78,7 @@ namespace MyFunctionApp
 }
 ```
 
-**Timer Trigger Function**:
+### Timer Trigger Function
 
 ```csharp
 [Function("TimerFunction")]
@@ -85,7 +93,7 @@ public void Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer)
 }
 ```
 
-**Program.cs Configuration**:
+### Program.cs Configuration
 
 ```csharp
 using Microsoft.Extensions.Hosting;
@@ -103,7 +111,7 @@ var host = new HostBuilder()
 host.Run();
 ```
 
-### Use Cases
+## Use Cases
 
 - Event-driven processing (HTTP requests, queue messages, file uploads)
 - Scheduled tasks and background processing
@@ -112,45 +120,45 @@ host.Run();
 - IoT data ingestion and processing
 - Webhook endpoints for third-party integrations
 
-### When to Use vs Alternatives
+## When to Use vs Alternatives
 
-**Use Azure Functions when**:
+### Use Azure Functions when
 
 - You have intermittent or unpredictable workloads
 - Event-driven architecture is suitable
 - You want to minimize infrastructure costs
 - Quick prototyping and development is needed
 
-**Don't use when**:
+### Don't use when
 
 - Long-running processes (15-minute timeout limit)
 - High-frequency, consistent workloads
 - Complex state management is required
 - Low-latency requirements (cold start issues)
 
-**Alternatives**:
+### Alternatives
 
 - **AWS**: Lambda functions
 - **GCP**: Cloud Functions, Cloud Run
 - **Traditional**: App Service, Container Instances
 
-### Market Pros/Cons and Cost Considerations
+## Market Pros/Cons and Cost Considerations
 
-**Pros**:
+### Pros
 
 - True pay-per-execution pricing
 - Automatic scaling from zero to thousands
 - Multiple trigger types (HTTP, Timer, Storage, Service Bus)
 - Integrated with Azure ecosystem
 
-**Cons**:
+### Cons
 
 - Cold start latency
 - 15-minute execution timeout
 - Limited local state management
 - Debugging can be challenging
 
-**Cost Considerations**:
+### Cost Considerations
 
 - Consumption plan: Pay per execution and resource consumption
 - Premium plan: Pre-warmed instances, no cold starts (~$168/month base)

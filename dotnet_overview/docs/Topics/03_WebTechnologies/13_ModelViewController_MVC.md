@@ -1,14 +1,20 @@
-### MVC (Model-View-Controller)
+---
+slug: mvc
+title: Model-View-Controller
+tags: [dotnet, core, mvc, architecture, pattern]
+---
 
-#### Short Introduction
+# MVC (Model-View-Controller)
+
+## Short Introduction
 
 MVC is an architectural pattern that separates an application into three main components: Model (data), View (presentation), and Controller (logic).
 
-#### Official Definition
+## Official Definition
 
 Model-View-Controller (MVC) is an architectural pattern that separates an application into three main logical components: the model, the view, and the controller, each with distinct responsibilities.
 
-#### Usage
+## Usage
 
 ```csharp
 // Model
@@ -83,7 +89,7 @@ public class ProductsController : Controller
 }
 ```
 
-#### View (Razor)
+## View (Razor)
 
 ```html
 @model IEnumerable<ProductViewModel>
@@ -110,27 +116,25 @@ public class ProductsController : Controller
 </div>
 ```
 
-#### Use Cases
+## Use Cases
 
 - Traditional web applications
 - Server-rendered applications
 - Applications with complex UI logic
 - Multi-page applications
 
-#### When to Use / When Not to Use
+## When to Use / When Not to Use
 
-**Use MVC when:**
+### Use MVC when:
 
 - Building traditional web applications
 - Need server-side rendering
 - SEO is important
 - Team familiar with MVC pattern
 
-**Consider alternatives when:**
+### Consider alternatives when:
 
 - Building SPAs
 - Need real-time updates
 - API-only applications
 - Simple static sites
-
----

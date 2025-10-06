@@ -1,16 +1,22 @@
-## 40. Azure DevOps
+---
+slug: azure_devops
+title: Azure DevOps
+tags: [dotnet, azure, devops]
+---
 
-### Short Introduction
+# Azure DevOps
+
+## Short Introduction
 
 Azure DevOps is a comprehensive suite of development tools and services provided by Microsoft for planning, developing, testing, and deploying applications. It includes Azure Repos, Azure Pipelines, Azure Boards, Azure Test Plans, and Azure Artifacts, providing end-to-end DevOps capabilities for .NET applications.
 
-### Official Definition
+## Official Definition
 
 Azure DevOps provides developer services to support teams to plan work, collaborate on code development, and build and deploy applications. It supports any language, platform, and cloud, offering both cloud-hosted and on-premises solutions for development teams.
 
-### Setup/Usage with .NET 8+ Code
+## Setup/Usage with .NET 8+ Code
 
-**Basic Azure DevOps Pipeline (azure-pipelines.yml):**
+### Basic Azure DevOps Pipeline (azure-pipelines.yml)
 
 ```yaml
 # azure-pipelines.yml
@@ -113,7 +119,7 @@ stages:
                     package: "$(Pipeline.Workspace)/drop/**/*.zip"
 ```
 
-**Multi-Stage Pipeline with Docker:**
+### Multi-Stage Pipeline with Docker
 
 ```yaml
 # azure-pipelines-docker.yml
@@ -178,7 +184,7 @@ stages:
                       $(containerRegistry)/$(imageRepository):$(tag)
 ```
 
-### Use Cases
+## Use Cases
 
 - **Enterprise Development**: Large-scale development with multiple teams
 - **Regulated Industries**: Compliance tracking and audit trails
@@ -187,9 +193,9 @@ stages:
 - **Work Item Tracking**: Project management and requirement tracking
 - **Release Management**: Complex deployment pipelines with approvals
 
-### When to Use vs When Not to Use
+## When to Use vs When Not to Use
 
-**Use Azure DevOps when:**
+### Use Azure DevOps when
 
 - Working in Microsoft-centric environments
 - Need integrated work item tracking and planning
@@ -198,7 +204,7 @@ stages:
 - Need on-premises DevOps capabilities
 - Working with large teams requiring structured processes
 
-**Consider alternatives when:**
+### Consider alternatives when
 
 - Primarily using non-Microsoft technologies
 - Need simpler, lightweight CI/CD solutions
@@ -206,9 +212,9 @@ stages:
 - Open-source focused development
 - Small teams with minimal process requirements
 
-### Market Alternatives & Pros/Cons
+## Market Alternatives & Pros/Cons
 
-**Alternatives:**
+### Alternatives:
 
 - **GitHub Actions**: Integrated with GitHub, simpler setup
 - **GitLab CI/CD**: Complete DevOps platform with GitOps
@@ -217,7 +223,7 @@ stages:
 - **TeamCity**: JetBrains' CI/CD solution
 - **AWS CodePipeline**: Native AWS integration
 
-**Pros:**
+### Pros:
 
 - Comprehensive integrated suite
 - Strong Microsoft ecosystem integration
@@ -226,7 +232,7 @@ stages:
 - Advanced work item tracking and reporting
 - Mature testing and release management
 
-**Cons:**
+### Cons:
 
 - Can be complex for simple projects
 - Licensing costs for larger teams
@@ -234,9 +240,9 @@ stages:
 - Learning curve for non-Microsoft environments
 - YAML pipeline syntax can be verbose
 
-### Complete Runnable Sample
+## Complete Runnable Sample
 
-**Complete Enterprise Pipeline:**
+<!-- ### Complete Enterprise Pipeline -->
 
 ```yaml
 # azure-pipelines-enterprise.yml

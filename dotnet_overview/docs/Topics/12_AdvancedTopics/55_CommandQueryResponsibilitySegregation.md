@@ -1,10 +1,10 @@
 ## 55. CQRS (Command Query Responsibility Segregation)
 
-### Short Introduction
+## Short Introduction
 
 CQRS is an architectural pattern that separates read and write operations by using different models to update information and to read information. This separation allows for optimized data models and can improve performance, scalability, and security.
 
-### Official Definition
+## Official Definition
 
 Command Query Responsibility Segregation (CQRS) is a pattern that segregates the operations that read data (Queries) from the operations that update data (Commands) by using separate interfaces. CQRS can also be used with Event Sourcing to provide a complete audit trail and enable temporal queries.
 
@@ -29,7 +29,7 @@ dotnet add package FluentValidation.DependencyInjectionExtensions
 - Domain-driven design implementations with rich business models
 - Systems integrating with event sourcing patterns
 
-### When to Use vs When Not to Use
+## When to Use vs When Not to Use
 
 **Use CQRS when:**
 
@@ -50,7 +50,7 @@ dotnet add package FluentValidation.DependencyInjectionExtensions
 
 ### Market Alternatives and Adoption
 
-**Alternatives:**
+### Alternatives:
 
 - Traditional Repository Pattern with services
 - Standard MVC/API controllers with direct database access
@@ -66,7 +66,7 @@ dotnet add package FluentValidation.DependencyInjectionExtensions
 
 ### Pros and Cons
 
-**Pros:**
+### Pros:
 
 - Clear separation of concerns between reads and writes
 - Optimized data models for different use cases
@@ -76,7 +76,7 @@ dotnet add package FluentValidation.DependencyInjectionExtensions
 - Better testability of business logic
 - Supports complex business workflows
 
-**Cons:**
+### Cons:
 
 - Increased architectural complexity
 - Potential for eventual consistency issues

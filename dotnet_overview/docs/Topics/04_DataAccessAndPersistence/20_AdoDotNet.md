@@ -1,12 +1,18 @@
-## 5.3 ADO.NET
+---
+slug: ado_net
+title: ADO.NET
+tags: [dotnet, ADO, database, performance]
+---
+
+# ADO.NET
 
 ADO.NET is the foundational data access technology in .NET that provides low-level access to data sources. It offers maximum control and performance but requires more code and careful resource management.
 
-### Official Definition
+## Official Definition
 
 ADO.NET (ActiveX Data Objects for .NET) is a set of classes that expose data access services for .NET Framework and .NET Core programmers. It provides a bridge between the front-end controls and the back-end database.
 
-### Usage
+## Usage
 
 ADO.NET is included in .NET by default. For SQL Server, install the Microsoft.Data.SqlClient package:
 
@@ -16,7 +22,7 @@ dotnet add package Microsoft.Data.SqlClient
 
 Basic components include Connection, Command, DataReader, and DataAdapter classes.
 
-### Use Cases
+## Use Cases
 
 - Maximum performance requirements
 - Fine-grained control over database operations
@@ -25,9 +31,9 @@ Basic components include Connection, Command, DataReader, and DataAdapter classe
 - Bulk data operations
 - Custom connection pooling requirements
 
-### When to Use vs When Not to Use
+## When to Use vs When Not to Use
 
-**Use ADO.NET when:**
+### Use ADO.NET when:
 
 - Absolute maximum performance is required
 - Working with legacy databases or systems
@@ -36,7 +42,7 @@ Basic components include Connection, Command, DataReader, and DataAdapter classe
 - Building data access frameworks
 - Processing large datasets efficiently
 
-**Don't use ADO.NET when:**
+### Don't use ADO.NET when:
 
 - Development speed is prioritized
 - Team lacks database expertise
@@ -44,13 +50,13 @@ Basic components include Connection, Command, DataReader, and DataAdapter classe
 - Need object-relational mapping features
 - Want to avoid boilerplate code
 
-### Market Alternatives and Market Adoption
+## Market Alternatives and Market Adoption
 
 ADO.NET remains the foundation for all .NET data access technologies. While higher-level tools like Entity Framework and Dapper are more commonly used for application development, ADO.NET is still essential for framework development and high-performance scenarios.
 
-### Pros and Cons
+## Pros and Cons
 
-**Pros:**
+### Pros:
 
 - Maximum performance and control
 - Direct access to all database features
@@ -59,7 +65,7 @@ ADO.NET remains the foundation for all .NET data access technologies. While high
 - Supports all data types
 - Battle-tested and stable
 
-**Cons:**
+### Cons:
 
 - Verbose and repetitive code
 - Manual resource management required
@@ -68,7 +74,7 @@ ADO.NET remains the foundation for all .NET data access technologies. While high
 - Requires extensive database knowledge
 - Time-consuming development
 
-### Sample Usage
+## Sample Usage
 
 ```csharp
 // Package reference: <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.1" />

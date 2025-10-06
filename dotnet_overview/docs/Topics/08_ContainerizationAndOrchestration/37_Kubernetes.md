@@ -1,16 +1,22 @@
-## 37. Kubernetes
+---
+slug: kubernetes
+title: Kubernetes
+tags: [dotnet, containers, kubernetes]
+---
 
-### Short Introduction
+# Kubernetes
+
+## Short Introduction
 
 Kubernetes is an open-source container orchestration platform that automates deployment, scaling, and management of containerized applications. For .NET applications, Kubernetes provides robust orchestration capabilities, enabling high availability, auto-scaling, and declarative configuration management across clusters.
 
-### Official Definition
+## Official Definition
 
 Kubernetes is a portable, extensible, open-source platform for managing containerized workloads and services that facilitates both declarative configuration and automation. It has a large, rapidly growing ecosystem with services, support, and tools widely available.
 
-### Setup/Usage with .NET 8+ Code
+## Setup/Usage with .NET 8+ Code
 
-**Basic Kubernetes Deployment for .NET API:**
+### Basic Kubernetes Deployment for .NET API
 
 ```yaml
 # k8s/namespace.yaml
@@ -110,7 +116,7 @@ spec:
                   number: 80
 ```
 
-**ConfigMap and Secrets:**
+### ConfigMap and Secrets
 
 ```yaml
 # k8s/configmap.yaml
@@ -145,7 +151,7 @@ data:
   connection-string: U2VydmVyPXNxbC1zZXJ2aWNlO0RhdGFiYXNlPUhvdGVsTWFuYWdlbWVudDtVc2VyIElkPXNhO1Bhc3N3b3JkPVlvdXJQYXNzd29yZDEyMyE7VHJ1c3RTZXJ2ZXJDZXJ0aWZpY2F0ZT10cnVl
 ```
 
-### Use Cases
+## Use Cases
 
 - **Microservices Orchestration**: Managing multiple interconnected services
 - **Auto-scaling**: Horizontal and vertical scaling based on metrics
@@ -154,9 +160,9 @@ data:
 - **Service Discovery**: Internal communication between services
 - **Configuration Management**: Centralized config and secrets management
 
-### When to Use vs When Not to Use
+## When to Use vs When Not to Use
 
-**Use Kubernetes when:**
+### Use Kubernetes when
 
 - Running multiple microservices
 - Need high availability and scalability
@@ -165,7 +171,7 @@ data:
 - Requiring advanced networking and storage
 - Team has container orchestration expertise
 
-**Consider alternatives when:**
+### Consider alternatives when
 
 - Simple single-service applications
 - Small team with limited DevOps expertise
@@ -173,9 +179,9 @@ data:
 - Tight budget constraints (managed services cost)
 - Windows-first applications with specific OS dependencies
 
-### Market Alternatives & Pros/Cons
+## Market Alternatives & Pros/Cons
 
-**Alternatives:**
+### Alternatives:
 
 - **Docker Swarm**: Simpler container orchestration
 - **Amazon ECS/Fargate**: AWS-managed container services
@@ -183,7 +189,7 @@ data:
 - **HashiCorp Nomad**: Simple, flexible orchestrator
 - **OpenShift**: Enterprise Kubernetes platform
 
-**Pros:**
+### Pros:
 
 - Industry standard with large ecosystem
 - Powerful orchestration and scaling capabilities
@@ -192,7 +198,7 @@ data:
 - Cloud-agnostic deployment
 - Advanced networking and storage options
 
-**Cons:**
+### Cons:
 
 - Steep learning curve and complexity
 - Resource overhead for small applications
@@ -200,9 +206,9 @@ data:
 - Potential over-engineering for simple scenarios
 - Configuration management complexity
 
-### Complete Runnable Sample
+## Complete Runnable Sample
 
-**Complete Kubernetes Setup:**
+### Complete Kubernetes Setup
 
 ```yaml
 # k8s/hotel-management-complete.yaml
@@ -431,7 +437,7 @@ spec:
           averageUtilization: 80
 ```
 
-**Deployment Commands:**
+### Deployment Commands
 
 ```bash
 # Apply all configurations

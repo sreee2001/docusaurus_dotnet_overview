@@ -1,14 +1,20 @@
-### Middleware
+---
+slug: middleware
+title: Middleware
+tags: [dotnet, core, middleware]
+---
 
-#### Short Introduction
+# Middleware
+
+## Short Introduction
 
 Middleware in ASP.NET Core forms the request processing pipeline, where each component can process requests and responses or pass them to the next component.
 
-#### Official Definition
+## Official Definition
 
 Middleware is software that's assembled into an application pipeline to handle requests and responses. Each component chooses whether to pass the request to the next component in the pipeline and can perform work before and after the next component in the pipeline is invoked.
 
-#### Usage
+## Usage
 
 ```csharp
 // Built-in middleware
@@ -58,7 +64,7 @@ public class RequestLoggingMiddleware
 app.UseMiddleware<RequestLoggingMiddleware>();
 ```
 
-#### Use Cases
+## Use Cases
 
 - Request/response logging
 - Authentication and authorization
@@ -67,7 +73,7 @@ app.UseMiddleware<RequestLoggingMiddleware>();
 - Request/response modification
 - Cross-cutting concerns
 
-#### Sample Usage
+## Sample Usage
 
 ```csharp
 // Error handling middleware
@@ -112,5 +118,3 @@ public class GlobalExceptionMiddleware
     }
 }
 ```
-
----

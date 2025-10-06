@@ -1,14 +1,22 @@
-## 30. Azure App Service
+---
+slug: azure_app_service
+title: Azure App Service
+tags: [dotnet, azure, service, app_service]
+---
 
-### Short Introduction + Official Definition
+# Azure App Service
+
+## Short Introduction
 
 Azure App Service is Microsoft's fully managed platform-as-a-service (PaaS) offering for hosting web applications, REST APIs, and mobile backends. It provides built-in auto-scaling, load balancing, security, and DevOps integration without requiring infrastructure management.
 
-**Official Definition**: "Azure App Service is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. You can develop in your favorite language, be it .NET, .NET Core, Java, Ruby, Node.js, PHP, or Python."
+## Official Definition
 
-### Setup and Deployment Steps
+"Azure App Service is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. You can develop in your favorite language, be it .NET, .NET Core, Java, Ruby, Node.js, PHP, or Python."
 
-**Azure CLI Setup**:
+## Setup and Deployment Steps
+
+### Azure CLI Setup
 
 ```bash
 # Login to Azure
@@ -27,7 +35,7 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
 az webapp up --name myUniqueAppName --resource-group myResourceGroup
 ```
 
-**Bicep Template**:
+### Bicep Template
 
 ```bicep
 param appName string = 'myapp${uniqueString(resourceGroup().id)}'
@@ -63,7 +71,7 @@ resource webApp 'Microsoft.Web/sites@2022-03-01' = {
 }
 ```
 
-### Typical Usage and Integration with .NET Apps
+## Typical Usage and Integration with .NET Apps
 
 ```csharp
 // Program.cs for App Service deployment
@@ -98,7 +106,7 @@ app.MapControllers();
 app.Run();
 ```
 
-**Configuration in appsettings.json**:
+### Configuration in appsettings.json
 
 ```json
 {
@@ -115,7 +123,7 @@ app.Run();
 }
 ```
 
-### Use Cases
+## Use Cases
 
 - Web applications and APIs requiring quick deployment
 - Applications needing built-in scaling and load balancing
@@ -124,31 +132,31 @@ app.Run();
 - Staging and production slot deployments
 - Integration with other Azure services (SQL Database, Storage, etc.)
 
-### When to Use vs Alternatives
+## When to Use vs Alternatives
 
-**Use Azure App Service when**:
+### Use Azure App Service when
 
 - You need rapid deployment without infrastructure management
 - Auto-scaling based on metrics is important
 - Built-in CI/CD integration is valuable
 - SSL and custom domain management should be automated
 
-**Don't use when**:
+### Don't use when
 
 - You need full control over the underlying OS
 - Custom software installation is required
 - Cost optimization for always-on applications is critical
 - Multi-cloud deployment is a requirement
 
-**Alternatives**:
+### Alternatives
 
 - **AWS**: Elastic Beanstalk, AWS Lambda (serverless)
 - **GCP**: App Engine, Cloud Run
 - **Self-hosted**: Docker containers on VMs, Kubernetes
 
-### Market Pros/Cons and Cost Considerations
+## Market Pros/Cons and Cost Considerations
 
-**Pros**:
+### Pros
 
 - Zero infrastructure management
 - Built-in auto-scaling and load balancing
@@ -156,14 +164,14 @@ app.Run();
 - Easy SSL certificate management
 - Deployment slots for blue-green deployments
 
-**Cons**:
+### Cons
 
 - Vendor lock-in to Azure
 - Limited customization of underlying infrastructure
 - Can be expensive for high-traffic applications
 - Cold start issues with lower-tier plans
 
-**Cost Considerations**:
+### Cost Considerations
 
 - Free tier available (limited resources)
 - Basic plans start at ~$13/month

@@ -1,14 +1,14 @@
 ## 43. Health Checks
 
-### Short Introduction
+## Short Introduction
 
 Health Checks in .NET provide a systematic way to monitor the health and availability of an application and its dependencies. They offer HTTP endpoints that can be called by load balancers, monitoring systems, and orchestrators to determine if an application instance should receive traffic or needs to be restarted.
 
-### Official Definition
+## Official Definition
 
 Health Checks are diagnostic checks that can be performed on an application to determine its health status. They provide a consistent way to expose health information about an application and its dependencies, enabling monitoring systems to make informed decisions about traffic routing and instance management.
 
-### Setup/Usage with .NET 8+ Code
+## Setup/Usage with .NET 8+ Code
 
 **Basic Health Checks Setup:**
 
@@ -314,7 +314,7 @@ public class MemoryHealthCheck : IHealthCheck
 - **Auto-scaling**: Scale up/down based on application health
 - **Circuit Breaker Patterns**: Fail fast when dependencies are unhealthy
 
-### When to Use vs When Not to Use
+## When to Use vs When Not to Use
 
 **Use Health Checks when:**
 
@@ -335,7 +335,7 @@ public class MemoryHealthCheck : IHealthCheck
 
 ### Market Alternatives & Pros/Cons
 
-**Alternatives:**
+### Alternatives:
 
 - **Custom HTTP endpoints**: Simple health status endpoints
 - **Application Performance Monitoring**: New Relic, Datadog health monitoring
@@ -343,7 +343,7 @@ public class MemoryHealthCheck : IHealthCheck
 - **Cloud provider health checks**: AWS ELB, Azure Load Balancer
 - **Service mesh health checks**: Istio, Linkerd health monitoring
 
-**Pros:**
+### Pros:
 
 - Built into .NET ecosystem
 - Standardized approach across applications
@@ -352,7 +352,7 @@ public class MemoryHealthCheck : IHealthCheck
 - Minimal performance overhead
 - Rich reporting capabilities
 
-**Cons:**
+### Cons:
 
 - Requires proper implementation to be effective
 - Can add complexity to simple applications

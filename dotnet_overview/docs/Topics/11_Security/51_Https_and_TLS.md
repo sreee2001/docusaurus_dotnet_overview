@@ -1,14 +1,14 @@
 ## 51. HTTPS & TLS
 
-### Short Introduction
+## Short Introduction
 
 HTTPS (HTTP Secure) and TLS (Transport Layer Security) provide encrypted communication between clients and servers. In .NET Core applications, HTTPS is essential for secure data transmission, authentication, and meeting compliance requirements.
 
-### Official Definition
+## Official Definition
 
 HTTPS is HTTP over TLS/SSL, providing encryption, data integrity, and authentication. TLS is the cryptographic protocol that secures the connection between client and server, replacing the older SSL protocol.
 
-### Setup/Usage with .NET 8+ Code
+## Setup/Usage with .NET 8+ Code
 
 **Basic HTTPS Configuration in Program.cs:**
 
@@ -82,7 +82,7 @@ dotnet dev-certs https --clean
 - **User Trust**: Browser security indicators for user confidence
 - **Preventing MITM Attacks**: Protection against man-in-the-middle attacks
 
-### When to Use vs When Not to Use
+## When to Use vs When Not to Use
 
 **Use HTTPS when:**
 
@@ -101,14 +101,14 @@ dotnet dev-certs https --clean
 
 ### Market Alternatives & Pros/Cons
 
-**Alternatives:**
+### Alternatives:
 
 - **Cloudflare**: CDN with automatic HTTPS
 - **AWS Certificate Manager**: Free SSL certificates for AWS resources
 - **Let's Encrypt**: Free automated certificates
 - **Commercial CAs**: DigiCert, GlobalSign, Comodo
 
-**Pros:**
+### Pros:
 
 - Data encryption and integrity
 - Authentication of server identity
@@ -116,7 +116,7 @@ dotnet dev-certs https --clean
 - SEO and performance benefits (HTTP/2)
 - Compliance with security standards
 
-**Cons:**
+### Cons:
 
 - Additional CPU overhead for encryption
 - Certificate management complexity

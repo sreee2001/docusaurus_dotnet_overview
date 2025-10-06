@@ -1,14 +1,20 @@
-### Entity Framework Core
+---
+slug: entity_framework_core
+title: Entity Framework Core
+tags: [dotnet, entity framework, core]
+---
 
-#### Short Introduction
+# Entity Framework Core
+
+## Short Introduction
 
 Entity Framework Core is a modern object-database mapper for .NET that supports LINQ queries, change tracking, updates, and schema migrations.
 
-#### Official Definition
+## Official Definition
 
 Entity Framework Core (EF Core) is a lightweight, extensible, open source and cross-platform version of the popular Entity Framework data access technology.
 
-#### Usage
+## Usage
 
 ```csharp
 // DbContext definition
@@ -39,30 +45,30 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 ```
 
-#### Use Cases
+## Use Cases
 
 - Data access layer
 - Object-relational mapping
 - Database migrations
 - Complex queries with LINQ
 
-#### When to Use / When Not to Use
+## When to Use / When Not to Use
 
-**Use EF Core when:**
+### Use EF Core when:
 
 - Working with relational databases
 - Need object-relational mapping
 - Want type-safe queries
 - Require change tracking
 
-**Consider alternatives when:**
+### Consider alternatives when:
 
 - Simple data access requirements
 - Performance is critical
 - Working with non-relational data
 - Team prefers SQL-first approach
 
-#### Market Alternatives
+## Market Alternatives
 
 - Dapper (.NET)
 - Hibernate (Java)
@@ -70,7 +76,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 - Django ORM (Python)
 - ActiveRecord (Ruby)
 
-#### Sample Usage
+## Sample Usage
 
 ```csharp
 // Repository pattern with EF Core
@@ -121,5 +127,3 @@ public class ProductRepository : IProductRepository
     }
 }
 ```
-
----

@@ -1,14 +1,14 @@
 ## 45. API Gateway (YARP, Azure API Management)
 
-### Short Introduction
+## Short Introduction
 
 An API Gateway is a server that acts as an API front-end, receiving API requests, enforcing throttling and security policies, passing requests to the back-end service, and then passing the response back to the requester. YARP (Yet Another Reverse Proxy) is Microsoft's .NET-based reverse proxy toolkit, while Azure API Management provides a comprehensive managed API gateway solution.
 
-### Official Definition
+## Official Definition
 
 An API Gateway is an API management tool that sits between a client and a collection of backend services. It acts as a reverse proxy to accept all API calls, aggregate the various services required to fulfill them, and return the appropriate result. YARP is a library to help create reverse proxy servers that are high-performance, production-ready, and highly customizable.
 
-### Setup/Usage with .NET 8+ Code
+## Setup/Usage with .NET 8+ Code
 
 **YARP Implementation:**
 
@@ -314,7 +314,7 @@ public class AddCustomHeaderTransform : ITransformProvider
 - **Protocol Translation**: Convert between different protocols (HTTP, gRPC)
 - **Request/Response Transformation**: Modify requests and responses
 
-### When to Use vs When Not to Use
+## When to Use vs When Not to Use
 
 **Use API Gateway when:**
 
@@ -335,7 +335,7 @@ public class AddCustomHeaderTransform : ITransformProvider
 
 ### Market Alternatives & Pros/Cons
 
-**Alternatives:**
+### Alternatives:
 
 - **Kong**: Open-source API gateway with enterprise features
 - **Istio**: Service mesh with gateway capabilities
@@ -344,7 +344,7 @@ public class AddCustomHeaderTransform : ITransformProvider
 - **Traefik**: Modern reverse proxy and load balancer
 - **Nginx Plus**: Commercial version with API gateway features
 
-**Pros:**
+### Pros:
 
 - Centralized cross-cutting concerns
 - Single entry point for clients
@@ -353,7 +353,7 @@ public class AddCustomHeaderTransform : ITransformProvider
 - Integration with .NET ecosystem (YARP)
 - Reduced client complexity
 
-**Cons:**
+### Cons:
 
 - Additional network latency
 - Single point of failure risk

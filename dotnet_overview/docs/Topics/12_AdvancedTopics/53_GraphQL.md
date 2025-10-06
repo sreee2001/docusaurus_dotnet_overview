@@ -1,14 +1,14 @@
 ## 53. GraphQL (HotChocolate)
 
-### Short Introduction
+## Short Introduction
 
 GraphQL is a query language and runtime for APIs that allows clients to request exactly the data they need. HotChocolate is a powerful .NET GraphQL server that provides a code-first approach to building GraphQL APIs, with features like real-time subscriptions, DataLoader for efficient data fetching, and comprehensive tooling.
 
-### Official Definition
+## Official Definition
 
 GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more.
 
-### Setup/Usage with .NET 8+ Code
+## Setup/Usage with .NET 8+ Code
 
 **Installation:**
 
@@ -339,7 +339,7 @@ public class BookingsByCustomerDataLoader : BatchDataLoader<string, Booking[]>
 - **Developer Experience**: Strong typing and excellent tooling
 - **API Evolution**: Add fields without versioning
 
-### When to Use vs When Not to Use
+## When to Use vs When Not to Use
 
 **Use GraphQL when:**
 
@@ -360,7 +360,7 @@ public class BookingsByCustomerDataLoader : BatchDataLoader<string, Booking[]>
 
 ### Market Alternatives & Pros/Cons
 
-**Alternatives:**
+### Alternatives:
 
 - **Apollo Server**: Popular GraphQL server for Node.js
 - **Hasura**: Auto-generated GraphQL APIs from databases
@@ -369,7 +369,7 @@ public class BookingsByCustomerDataLoader : BatchDataLoader<string, Booking[]>
 - **GraphQL Yoga**: Fully-featured GraphQL server
 - **Strawberry Shake**: GraphQL client for .NET
 
-**Pros:**
+### Pros:
 
 - Single endpoint for all data needs
 - Strong typing and schema validation
@@ -378,7 +378,7 @@ public class BookingsByCustomerDataLoader : BatchDataLoader<string, Booking[]>
 - Real-time subscriptions
 - Introspection and tooling
 
-**Cons:**
+### Cons:
 
 - Complexity in caching
 - Potential for expensive queries

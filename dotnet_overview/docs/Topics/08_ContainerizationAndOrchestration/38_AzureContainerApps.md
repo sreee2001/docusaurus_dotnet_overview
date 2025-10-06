@@ -1,16 +1,22 @@
-## 38. Azure Container Apps
+---
+slug: azure_container_apps
+title: Azure Container Apps
+tags: [dotnet, containers, azure, apps]
+---
 
-### Short Introduction
+# Azure Container Apps
+
+## Short Introduction
 
 Azure Container Apps is a fully managed serverless container platform that allows you to run containerized applications without managing infrastructure. It provides automatic scaling, traffic splitting, and built-in integration with Azure services, making it ideal for microservices and event-driven applications.
 
-### Official Definition
+## Official Definition
 
 Azure Container Apps is a fully managed environment that enables you to run microservices and containerized applications on a serverless platform. It's built on Kubernetes but abstracts away cluster management complexity while providing advanced microservices capabilities.
 
-### Setup/Usage with .NET 8+ Code
+## Setup/Usage with .NET 8+ Code
 
-**Azure CLI Setup:**
+### Azure CLI Setup
 
 ```bash
 # Install Azure CLI extension
@@ -26,7 +32,7 @@ az containerapp env create \
   --location eastus
 ```
 
-**Container App Configuration:**
+### Container App Configuration
 
 ```yaml
 # containerapp.yaml
@@ -84,7 +90,7 @@ properties:
             requests: 100
 ```
 
-**Deployment with Azure CLI:**
+### Deployment with Azure CLI
 
 ```bash
 # Create container app
@@ -117,7 +123,7 @@ az containerapp ingress enable \
   --transport https
 ```
 
-### Use Cases
+## Use Cases
 
 - **Microservices Architecture**: Event-driven and HTTP-based microservices
 - **API Backends**: REST APIs with automatic scaling
@@ -126,9 +132,9 @@ az containerapp ingress enable \
 - **Serverless Workloads**: Pay-per-use scaling applications
 - **Development and Testing**: Quick deployment for CI/CD pipelines
 
-### When to Use vs When Not to Use
+## When to Use vs When Not to Use
 
-**Use Azure Container Apps when:**
+### Use Azure Container Apps when
 
 - Building microservices or API-first applications
 - Need automatic scaling with zero-to-many instances
@@ -137,7 +143,7 @@ az containerapp ingress enable \
 - Need simple container deployment without Kubernetes complexity
 - Building cloud-native applications on Azure
 
-**Consider alternatives when:**
+### Consider alternatives when
 
 - Need full Kubernetes control and customization
 - Running Windows containers (limited support)
@@ -146,9 +152,9 @@ az containerapp ingress enable \
 - Working with legacy applications requiring VMs
 - Multi-cloud deployment requirements
 
-### Market Alternatives & Pros/Cons
+## Market Alternatives & Pros/Cons
 
-**Alternatives:**
+### Alternatives:
 
 - **AWS Fargate**: Serverless containers on AWS
 - **Google Cloud Run**: Serverless containers on GCP
@@ -157,7 +163,7 @@ az containerapp ingress enable \
 - **AWS Lambda**: Function-as-a-Service
 - **Azure Functions**: Serverless functions
 
-**Pros:**
+### Pros:
 
 - Fully managed with no infrastructure overhead
 - Automatic scaling including scale-to-zero
@@ -166,7 +172,7 @@ az containerapp ingress enable \
 - Pay-per-use pricing model
 - Simple deployment and management
 
-**Cons:**
+### Cons:
 
 - Limited to Linux containers primarily
 - Less control compared to full Kubernetes
@@ -175,9 +181,9 @@ az containerapp ingress enable \
 - Limited persistent storage options
 - Cold start latency for scale-to-zero scenarios
 
-### Complete Runnable Sample
+## Complete Runnable Sample
 
-**Bicep Template for Infrastructure:**
+### Bicep Template for Infrastructure
 
 ```bicep
 // main.bicep
@@ -302,7 +308,7 @@ resource containerApp 'Microsoft.App/containerApps@2023-05-01' = {
 output containerAppFQDN string = containerApp.properties.configuration.ingress.fqdn
 ```
 
-**Deployment Script:**
+### Deployment Script
 
 ```bash
 #!/bin/bash
@@ -336,7 +342,7 @@ echo "Application deployed at: https://$FQDN"
 curl -k "https://$FQDN/health"
 ```
 
-**GitHub Actions Workflow:**
+### GitHub Actions Workflow
 
 ```yaml
 # .github/workflows/deploy-to-containerapp.yml

@@ -1,14 +1,22 @@
-## 33. Azure Cosmos DB
+---
+slug: azure_cosmos_database
+title: Azure Cosmos DB
+tags: [dotnet, azure, cosmos, database, nosql]
+---
 
-### Short Introduction + Official Definition
+# Azure Cosmos DB
+
+## Short Introduction
 
 Azure Cosmos DB is Microsoft's globally distributed, multi-model NoSQL database service designed for mission-critical applications requiring low latency, elastic scale, and high availability across multiple geographic regions.
 
-**Official Definition**: "Azure Cosmos DB is a fully managed NoSQL database for modern app development. Single-digit millisecond response times, and automatic and instant scalability, guarantee speed at any scale."
+## Official Definition
 
-### Setup and Deployment Steps
+"Azure Cosmos DB is a fully managed NoSQL database for modern app development. Single-digit millisecond response times, and automatic and instant scalability, guarantee speed at any scale."
 
-**Azure CLI Setup**:
+## Setup and Deployment Steps
+
+### Azure CLI Setup
 
 ```bash
 # Create Cosmos DB account
@@ -21,7 +29,7 @@ az cosmosdb sql database create --account-name mycosmosdb --resource-group myRes
 az cosmosdb sql container create --account-name mycosmosdb --resource-group myResourceGroup --database-name ToDoList --name Items --partition-key-path "/category" --throughput 400
 ```
 
-**Bicep Template**:
+### Bicep Template
 
 ```bicep
 resource cosmosAccount 'Microsoft.DocumentDB/databaseAccounts@2023-04-15' = {
@@ -54,15 +62,15 @@ resource database 'Microsoft.DocumentDB/databaseAccounts/sqlDatabases@2023-04-15
 }
 ```
 
-### Typical Usage and Integration with .NET Apps
+## Typical Usage and Integration with .NET Apps
 
-**NuGet Package Installation**:
+### NuGet Package Installation
 
 ```xml
 <PackageReference Include="Microsoft.Azure.Cosmos" Version="3.35.4" />
 ```
 
-**Configuration and Service Registration**:
+### Configuration and Service Registration
 
 ```csharp
 // appsettings.json
@@ -92,7 +100,7 @@ builder.Services.AddSingleton<CosmosClient>(serviceProvider =>
 builder.Services.AddScoped<ICosmosDbService, CosmosDbService>();
 ```
 
-**Service Implementation**:
+### Service Implementation
 
 ```csharp
 public interface ICosmosDbService
@@ -169,7 +177,7 @@ public class ToDoItem
 }
 ```
 
-### Use Cases
+## Use Cases
 
 - Globally distributed applications requiring low latency
 - IoT applications with high-volume data ingestion
@@ -178,9 +186,9 @@ public class ToDoItem
 - Gaming leaderboards and user profiles
 - Financial services requiring multi-region compliance
 
-### When to Use vs Alternatives
+## When to Use vs Alternatives
 
-**Use Azure Cosmos DB when**:
+### Use Azure Cosmos DB when
 
 - Global distribution with low latency is critical
 - Elastic scaling from zero to unlimited is needed
@@ -188,23 +196,23 @@ public class ToDoItem
 - 99.999% availability SLA is important
 - Multi-master replication is beneficial
 
-**Don't use when**:
+### Don't use when
 
 - Simple relational queries are primary requirement
 - Cost optimization is the main concern
 - ACID transactions across multiple partitions are critical
 - Complex joins and aggregations are common
 
-**Alternatives**:
+### Alternatives
 
 - **Azure**: SQL Database, Table Storage
 - **AWS**: DynamoDB, DocumentDB
 - **GCP**: Firestore, Bigtable
 - **Open Source**: MongoDB, Cassandra
 
-### Market Pros/Cons and Cost Considerations
+## Market Pros/Cons and Cost Considerations
 
-**Pros**:
+### Pros
 
 - Multi-model database (SQL API, MongoDB API, Cassandra API, etc.)
 - Global distribution with automatic failover
@@ -212,14 +220,14 @@ public class ToDoItem
 - Multiple consistency levels
 - Serverless and autoscale options
 
-**Cons**:
+### Cons
 
 - Can be expensive for high-throughput scenarios
 - Learning curve for partition key design
 - Limited cross-partition transactions
 - Query optimization requires understanding of RU consumption
 
-**Cost Considerations**:
+### Cost Considerations
 
 - Charged based on Request Units (RU/s) and storage
 - Minimum 400 RU/s for containers (~$24/month)

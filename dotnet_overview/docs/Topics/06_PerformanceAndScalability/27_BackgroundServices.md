@@ -1,21 +1,29 @@
-## 27. Background Services
+---
+slug: background_services
+title: Background Services
+tags: [dotnet, background, services, tasks, scheduled, jobs, hosted]
+---
 
-### Short Introduction and Official Definition
+# Background Services
+
+## Short Introduction and Official Definition
 
 Background services in .NET Core provide a way to run long-running tasks, scheduled jobs, and background processing outside the main request-response cycle. They enable applications to perform work continuously or on schedule without blocking user requests.
 
-**Official Definition**: Background services are hosted services that implement `IHostedService` or inherit from `BackgroundService` class, allowing applications to run background tasks that start when the application starts and stop gracefully when the application shuts down.
+## Official Definition:
 
-### Setup/Usage
+Background services are hosted services that implement `IHostedService` or inherit from `BackgroundService` class, allowing applications to run background tasks that start when the application starts and stop gracefully when the application shuts down.
 
-**Basic BackgroundService:**
+## Setup/Usage
+
+### Basic BackgroundService:
 
 ```csharp
 // Program.cs
 builder.Services.AddHostedService<DataProcessingService>();
 ```
 
-**With Hangfire:**
+### With Hangfire:
 
 ```csharp
 // Program.cs
@@ -30,7 +38,7 @@ var app = builder.Build();
 app.UseHangfireDashboard("/hangfire");
 ```
 
-### Use Cases
+## Use Cases
 
 - **Data Processing**: ETL operations, file processing, data transformation
 - **Scheduled Tasks**: Daily reports, cleanup operations, backup processes
@@ -39,9 +47,9 @@ app.UseHangfireDashboard("/hangfire");
 - **Cache Warming**: Preloading frequently accessed data
 - **External API Synchronization**: Periodic data sync with third-party services
 
-### When to Use vs When Not to Use
+## When to Use vs When Not to Use
 
-**When to Use:**
+### When to Use:
 
 - Tasks don't require immediate user feedback
 - Long-running operations that shouldn't block requests
@@ -49,7 +57,7 @@ app.UseHangfireDashboard("/hangfire");
 - Resource-intensive operations
 - Tasks that can tolerate some delay
 
-**When Not to Use:**
+### When Not to Use:
 
 - Real-time operations requiring immediate response
 - Simple, fast operations better handled in request pipeline
@@ -57,25 +65,25 @@ app.UseHangfireDashboard("/hangfire");
 - Tasks requiring guaranteed execution order (consider message queues instead)
 - Memory-intensive operations on resource-constrained systems
 
-### Alternatives and Trade-offs
+## Alternatives and Trade-offs
 
-**Alternatives:**
+### Alternatives:
 
 - Azure Functions or AWS Lambda for serverless processing
 - Message queues (Azure Service Bus, RabbitMQ) for reliable processing
 - Windows Services or Linux daemons for system-level services
 - Cron jobs for simple scheduled tasks
 
-**Trade-offs:**
+### Trade-offs:
 
 - Application resources vs dedicated processing services
 - Immediate vs delayed processing
 - Simple implementation vs advanced scheduling features
 - In-process vs out-of-process execution
 
-### Sample Code and Commands
+## Sample Code and Commands
 
-**Basic BackgroundService:**
+### Basic BackgroundService:
 
 ```csharp
 public class DataProcessingService : BackgroundService
@@ -127,7 +135,7 @@ public class DataProcessingService : BackgroundService
 }
 ```
 
-**IHostedService Implementation:**
+### IHostedService Implementation:
 
 ```csharp
 public class TimedHostedService : IHostedService, IDisposable
@@ -181,7 +189,7 @@ public class TimedHostedService : IHostedService, IDisposable
 }
 ```
 
-**Hangfire Example:**
+### Hangfire Example:
 
 ```csharp
 // Job registration

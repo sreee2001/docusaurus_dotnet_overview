@@ -1,14 +1,36 @@
-## 34. Azure Storage (Blob, Queue, Table)
+---
+slug: azure_storage
+title: Azure Storage (Blob, Queue, Table)
+tags:
+  [
+    dotnet,
+    azure,
+    storage,
+    blob,
+    queue,
+    table,
+    secure,
+    highavailability,
+    scalable,
+    redundant,
+    nosql,
+    data_lake,
+  ]
+---
 
-### Short Introduction + Official Definition
+# Azure Storage (Blob, Queue, Table)
+
+## Short Introduction
 
 Azure Storage is Microsoft's cloud storage solution providing highly available, secure, durable, scalable, and redundant storage. It includes Blob storage for unstructured data, Queue storage for messaging, and Table storage for NoSQL structured data.
 
-**Official Definition**: "Azure Storage is a Microsoft-managed service providing cloud storage that is highly available, secure, durable, scalable, and redundant. Azure Storage includes Azure Blobs (objects), Azure Data Lake Storage Gen2, Azure Files, Azure Queues, and Azure Tables."
+## Official Definition
 
-### Setup and Deployment Steps
+"Azure Storage is a Microsoft-managed service providing cloud storage that is highly available, secure, durable, scalable, and redundant. Azure Storage includes Azure Blobs (objects), Azure Data Lake Storage Gen2, Azure Files, Azure Queues, and Azure Tables."
 
-**Azure CLI Setup**:
+## Setup and Deployment Steps
+
+### Azure CLI Setup
 
 ```bash
 # Create storage account
@@ -27,9 +49,9 @@ az storage queue create --name myqueue --account-name mystorageaccount
 az storage table create --name mytable --account-name mystorageaccount
 ```
 
-### Typical Usage and Integration with .NET Apps
+## Typical Usage and Integration with .NET Apps
 
-**NuGet Packages**:
+### NuGet Packages
 
 ```xml
 <PackageReference Include="Azure.Storage.Blobs" Version="12.19.1" />
@@ -37,7 +59,7 @@ az storage table create --name mytable --account-name mystorageaccount
 <PackageReference Include="Azure.Data.Tables" Version="12.8.2" />
 ```
 
-**Blob Storage Service**:
+### Blob Storage Service
 
 ```csharp
 using Azure.Storage.Blobs;
@@ -93,7 +115,7 @@ public class BlobStorageService : IBlobStorageService
 }
 ```
 
-**Queue Storage Service**:
+### Queue Storage Service
 
 ```csharp
 using Azure.Storage.Queues;
@@ -130,7 +152,7 @@ public class QueueStorageService
 }
 ```
 
-**Table Storage Service**:
+### Table Storage Service
 
 ```csharp
 using Azure.Data.Tables;
@@ -185,7 +207,7 @@ public class TableStorageService
 }
 ```
 
-**Service Registration**:
+### Service Registration
 
 ```csharp
 // Program.cs
@@ -206,9 +228,9 @@ builder.Services.AddScoped<QueueStorageService>();
 builder.Services.AddScoped<TableStorageService>();
 ```
 
-### Use Cases
+## Use Cases
 
-**Blob Storage**:
+### Blob Storage
 
 - Static website hosting
 - Document and media storage
@@ -216,14 +238,14 @@ builder.Services.AddScoped<TableStorageService>();
 - Data lakes for analytics
 - Content distribution
 
-**Queue Storage**:
+### Queue Storage
 
 - Decoupling application components
 - Background job processing
 - Load leveling
 - Reliable messaging between services
 
-**Table Storage**:
+### Table Storage
 
 - Semi-structured NoSQL data
 - Web application data storage
@@ -231,31 +253,31 @@ builder.Services.AddScoped<TableStorageService>();
 - Device information storage
 - Logging and telemetry data
 
-### When to Use vs Alternatives
+## When to Use vs Alternatives
 
-**Use Azure Storage when**:
+### Use Azure Storage when
 
 - Cost-effective storage for large amounts of data
 - Integration with Azure ecosystem is important
 - Simple key-value or blob storage requirements
 - High durability and availability needed
 
-**Don't use when**:
+### Don't use when
 
 - Complex relational queries required
 - Strong consistency across partitions needed
 - Real-time analytics requirements
 - ACID transactions required
 
-**Alternatives**:
+### Alternatives
 
 - **AWS**: S3 (Blob), SQS (Queue), DynamoDB (Table)
 - **GCP**: Cloud Storage, Cloud Tasks, Firestore
 - **Azure alternatives**: Cosmos DB (more features), Service Bus (advanced messaging)
 
-### Market Pros/Cons and Cost Considerations
+## Market Pros/Cons and Cost Considerations
 
-**Pros**:
+### Pros
 
 - Very cost-effective storage solution
 - High durability (99.999999999% for LRS)
@@ -263,18 +285,16 @@ builder.Services.AddScoped<TableStorageService>();
 - Strong integration with Azure services
 - REST API access from any platform
 
-**Cons**:
+### Cons
 
 - Limited query capabilities (especially Table Storage)
 - No ACID transactions across partitions
 - Table Storage has limited secondary indexes
 - Queue Storage lacks advanced messaging features
 
-**Cost Considerations**:
+### Cost Considerations
 
 - Blob Storage: ~$0.018/GB/month (Hot), ~$0.01/GB/month (Cool), ~$0.002/GB/month (Archive)
 - Queue Storage: ~$0.50 per million transactions
 - Table Storage: ~$0.50 per million transactions + ~$0.045/GB/month
 - Additional charges for operations, bandwidth, and geo-replication
-
-—continued—

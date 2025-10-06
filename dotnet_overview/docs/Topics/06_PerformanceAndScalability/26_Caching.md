@@ -1,14 +1,22 @@
-## 26. Caching
+---
+slug: caching
+title: Caching
+tags: [dotnet, performance, optimization, pattern, redis, response, in-memory]
+---
 
-### Short Introduction and Official Definition
+# Caching
+
+## Short Introduction and Official Definition
 
 Caching is a performance optimization technique that stores frequently accessed data in high-speed storage layers to reduce latency and improve application responsiveness. In .NET Core, caching operates at multiple levels: in-memory for single-instance scenarios, distributed for multi-instance deployments, and response caching for HTTP responses.
 
-**Official Definition**: According to Microsoft documentation, caching in ASP.NET Core provides mechanisms to store data temporarily in memory or external stores to avoid expensive operations like database queries or complex computations.
+## Official Definition:
 
-### Setup/Usage
+According to Microsoft documentation, caching in ASP.NET Core provides mechanisms to store data temporarily in memory or external stores to avoid expensive operations like database queries or complex computations.
 
-**In-Memory Caching Setup:**
+## Setup/Usage
+
+### In-Memory Caching Setup:
 
 ```csharp
 // Program.cs (.NET 8)
@@ -20,7 +28,7 @@ builder.Services.AddMemoryCache();
 var app = builder.Build();
 ```
 
-**Distributed Caching with Redis:**
+### Distributed Caching with Redis:
 
 ```csharp
 // Program.cs
@@ -36,7 +44,7 @@ builder.Services.AddStackExchangeRedisCache(options =>
 });
 ```
 
-**Response Caching:**
+### Response Caching:
 
 ```csharp
 // Program.cs
@@ -46,7 +54,7 @@ var app = builder.Build();
 app.UseResponseCaching();
 ```
 
-### Use Cases
+## Use Cases
 
 - **In-Memory Caching**: Single-server applications, session data, frequently accessed reference data
 - **Distributed Caching**: Multi-server deployments, session state sharing, cache invalidation across instances
@@ -55,9 +63,9 @@ app.UseResponseCaching();
 - **Computed Values**: Complex calculations, image processing results, aggregated metrics
 - **External API Responses**: Third-party service calls, weather data, exchange rates
 
-### When to Use vs When Not to Use
+## When to Use vs When Not to Use
 
-**When to Use:**
+### When to Use:
 
 - Data is expensive to generate or retrieve
 - Data doesn't change frequently
@@ -65,7 +73,7 @@ app.UseResponseCaching();
 - Database or external service latency is high
 - Memory is available and cost-effective
 
-**When Not to Use:**
+### When Not to Use:
 
 - Data changes very frequently (real-time data)
 - Memory constraints are severe
@@ -73,25 +81,25 @@ app.UseResponseCaching();
 - Data consistency is critical and cache adds risk
 - Simple applications with minimal performance requirements
 
-### Alternatives and Trade-offs
+## Alternatives and Trade-offs
 
-**Alternatives:**
+### Alternatives:
 
 - Database query optimization and indexing
 - CDN for static content
 - Application-level optimization
 - Horizontal scaling instead of caching
 
-**Trade-offs:**
+### Trade-offs:
 
 - Memory usage vs performance gain
 - Data freshness vs speed
 - Implementation complexity vs benefits
 - Cost of cache infrastructure vs performance improvement
 
-### Sample Code and Commands
+## Sample Code and Commands
 
-**In-Memory Cache Example:**
+### In-Memory Cache Example:
 
 ```csharp
 // Service using IMemoryCache
@@ -130,7 +138,7 @@ public class ProductService
 }
 ```
 
-**Distributed Cache Example:**
+### Distributed Cache Example:
 
 ```csharp
 // Service using IDistributedCache
@@ -169,7 +177,7 @@ public class UserService
 }
 ```
 
-**Response Caching Example:**
+### Response Caching Example:
 
 ```csharp
 // Controller with response caching
@@ -195,7 +203,7 @@ public class ProductsController : ControllerBase
 }
 ```
 
-**Redis Docker Command:**
+### Redis Docker Command:
 
 ```bash
 # Start Redis container

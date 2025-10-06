@@ -1,10 +1,16 @@
-### Entity Framework Core Advanced
+---
+slug: entity_framework_core_advanced
+title: Entity Framework Core Advanced
+tags: [dotnet, core, entity framework, advanced, query, linq, sql, database]
+---
 
-#### Short Introduction
+# Entity Framework Core Advanced
+
+## Short Introduction
 
 Advanced Entity Framework Core topics including performance optimization, advanced queries, migrations, and database design patterns.
 
-#### Advanced Querying
+## Advanced Querying
 
 ```csharp
 // Complex queries with LINQ
@@ -78,7 +84,7 @@ public class ProductService : IProductService
 }
 ```
 
-#### Advanced Configurations
+## Advanced Configurations
 
 ```csharp
 public class ApplicationDbContext : DbContext
@@ -144,7 +150,7 @@ public class ApplicationDbContext : DbContext
 }
 ```
 
-#### Performance Optimization
+## Performance Optimization
 
 ```csharp
 public class OptimizedProductService : IProductService
@@ -195,7 +201,7 @@ public class OptimizedProductService : IProductService
 }
 ```
 
-#### Migrations and Database Management
+## Migrations and Database Management
 
 ```csharp
 // Custom migration
@@ -237,5 +243,3 @@ public partial class AddProductIndexes : Migration
     }
 }
 ```
-
----

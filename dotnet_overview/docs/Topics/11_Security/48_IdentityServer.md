@@ -4,7 +4,7 @@
 
 Identity Server (now Duende Identity Server) is a comprehensive OpenID Connect and OAuth 2.0 framework for .NET applications. It provides centralized authentication and authorization services, enabling single sign-on (SSO) across multiple applications and APIs.
 
-### Official Definition
+## Official Definition
 
 Duende Identity Server is a certified OpenID Connect and OAuth 2.0 implementation that provides authentication as a service (AaaS) for modern web applications, APIs, and mobile applications. It supports various authentication flows and can act as a Security Token Service (STS).
 
@@ -63,7 +63,7 @@ app.UseIdentityServer();
 - Mobile app authentication
 - B2B and B2C identity scenarios
 
-### When to Use vs When Not to Use
+## When to Use vs When Not to Use
 
 **Use When:**
 
@@ -84,7 +84,7 @@ app.UseIdentityServer();
 
 ### Market Alternatives & Adoption
 
-**Alternatives:**
+### Alternatives:
 
 - Auth0 (SaaS solution)
 - Azure Active Directory B2C
@@ -97,7 +97,7 @@ app.UseIdentityServer();
 
 ### Pros and Cons
 
-**Pros:**
+### Pros:
 
 - Full OAuth 2.0/OpenID Connect compliance
 - Highly customizable and extensible
@@ -106,7 +106,7 @@ app.UseIdentityServer();
 - Active community and support
 - On-premises deployment control
 
-**Cons:**
+### Cons:
 
 - Complex setup and configuration
 - Requires significant expertise

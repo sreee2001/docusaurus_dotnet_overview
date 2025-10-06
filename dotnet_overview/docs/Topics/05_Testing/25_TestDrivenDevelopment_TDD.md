@@ -1,22 +1,28 @@
-## Test-Driven Development (TDD)
+---
+slug: tdd
+title: Test Driven Development
+tags: [dotnet, testing, tdd, quality, pattern]
+---
 
-### Short Introduction
+# Test-Driven Development (TDD)
+
+## Short Introduction
 
 Test-Driven Development (TDD) is a software development methodology where tests are written before the actual implementation code. The process follows a Red-Green-Refactor cycle: write a failing test (Red), implement the minimum code to pass (Green), then refactor for quality while keeping tests passing.
 
-### Official Definition
+## Official Definition
 
 TDD is a software development process that relies on the repetition of a very short development cycle: requirements are turned into very specific test cases, then the code is improved so that the tests pass. This is opposed to software development that allows code to be added that is not proven to meet requirements.
 
-### TDD Principles and Process
+## TDD Principles and Process
 
-**The Red-Green-Refactor Cycle:**
+### The Red-Green-Refactor Cycle:
 
 1. **Red**: Write a failing test that defines desired functionality
 2. **Green**: Write minimal code to make the test pass
 3. **Refactor**: Improve code quality while keeping tests green
 
-**Core Principles:**
+### Core Principles:
 
 - Write only enough test to fail
 - Write only enough code to pass the test
@@ -24,7 +30,7 @@ TDD is a software development process that relies on the repetition of a very sh
 - Tests serve as living documentation
 - Design emerges from test requirements
 
-### Use Cases
+## Use Cases
 
 - **Complex Business Logic**: Ensures business rules are correctly implemented
 - **API Development**: Validates endpoints behave as expected
@@ -33,9 +39,9 @@ TDD is a software development process that relies on the repetition of a very sh
 - **Regression Prevention**: Catches bugs early in development cycle
 - **Design Improvement**: Forces consideration of code design and interfaces
 
-### When to Use vs When Not to Use
+## When to Use vs When Not to Use
 
-**Use TDD when:**
+### Use TDD when:
 
 - Working on complex business logic
 - Building critical system components
@@ -43,7 +49,7 @@ TDD is a software development process that relies on the repetition of a very sh
 - Refactoring legacy systems
 - Building long-term maintainable software
 
-**Consider alternatives when:**
+### Consider alternatives when:
 
 - Prototyping or proof-of-concept work
 - Simple CRUD operations with minimal logic
@@ -51,16 +57,16 @@ TDD is a software development process that relies on the repetition of a very sh
 - Time constraints are extremely tight
 - Team lacks TDD experience and training time
 
-### Market Alternatives & Pros/Cons
+## Market Alternatives & Pros/Cons
 
-**Alternatives:**
+### Alternatives:
 
 - **Behavior-Driven Development (BDD)**: SpecFlow, Cucumber
 - **Test-After Development**: Traditional approach
 - **Property-Based Testing**: FsCheck
 - **Mutation Testing**: Stryker.NET
 
-**Pros:**
+### Pros:
 
 - Higher code quality and fewer bugs
 - Better code design through testability focus
@@ -68,7 +74,7 @@ TDD is a software development process that relies on the repetition of a very sh
 - Confidence in refactoring
 - Faster debugging and development cycles
 
-**Cons:**
+### Cons:
 
 - Initial learning curve and slower start
 - More code to write and maintain
@@ -76,9 +82,9 @@ TDD is a software development process that relies on the repetition of a very sh
 - May not suit all development contexts
 - Requires discipline and team buy-in
 
-### Benefits of TDD in .NET Development
+## Benefits of TDD in .NET Development
 
-**Code Quality Benefits:**
+### Code Quality Benefits:
 
 - Higher test coverage by design
 - Better code design and architecture
@@ -86,7 +92,7 @@ TDD is a software development process that relies on the repetition of a very sh
 - Fewer production defects
 - Self-documenting code through tests
 
-**Development Process Benefits:**
+### Development Process Benefits:
 
 - Faster feedback loop
 - Confidence in refactoring
@@ -94,7 +100,7 @@ TDD is a software development process that relies on the repetition of a very sh
 - Incremental development approach
 - Better team collaboration
 
-**Long-term Benefits:**
+### Long-term Benefits:
 
 - Maintainable codebase
 - Easier feature additions
@@ -102,7 +108,7 @@ TDD is a software development process that relies on the repetition of a very sh
 - Better system design
 - Improved developer productivity
 
-### TDD Best Practices for .NET
+## TDD Best Practices for .NET
 
 1. **Start Small**: Begin with simple, focused tests
 2. **Test Behavior, Not Implementation**: Focus on what the code should do
@@ -113,7 +119,7 @@ TDD is a software development process that relies on the repetition of a very sh
 7. **Refactor Regularly**: Improve code quality continuously
 8. **Write Tests First**: Resist the urge to write code before tests
 
-### Common TDD Challenges and Solutions
+## Common TDD Challenges and Solutions
 
 **Challenge**: Slow test execution
 **Solution**: Use unit tests for TDD, integration tests for verification
@@ -140,9 +146,9 @@ TDD is particularly effective in .NET development when combined with:
 
 The investment in TDD pays dividends through reduced bugs, improved design, and increased developer confidence in making changes to the codebase.
 
-### Setup/Usage with .NET 8+ Code
+## Setup/Usage with .NET 8+ Code
 
-**Installation:**
+### Installation:
 
 ```bash
 dotnet add package xunit
@@ -152,7 +158,7 @@ dotnet add package Moq
 dotnet add package FluentAssertions
 ```
 
-**Basic TDD Workflow:**
+### Basic TDD Workflow:
 
 ```csharp
 // 1. RED: Write failing test first
@@ -197,7 +203,7 @@ public class OrderCalculator
 }
 ```
 
-### TDD Practices for .NET
+## TDD Practices for .NET
 
 ```csharp
 // Example: TDD for Hotel Room Availability Service

@@ -1,14 +1,20 @@
-### Configuration Management
+---
+slug: configuration_management
+title: Configuration Management
+tags: [dotnet, core, configuration, management]
+---
 
-#### Short Introduction
+# Configuration Management
+
+## Short Introduction
 
 Configuration management in .NET Core provides a flexible system for managing application settings from various sources like files, environment variables, and cloud services.
 
-#### Official Definition
+## Official Definition
 
 The .NET configuration system provides a key-value based configuration API that works with a variety of configuration providers to supply configuration data to applications.
 
-#### Usage
+## Usage
 
 ```csharp
 // appsettings.json
@@ -44,7 +50,7 @@ builder.Services.Configure<EmailSettings>(
     builder.Configuration.GetSection("EmailSettings"));
 ```
 
-#### Configuration Providers
+## Configuration Providers
 
 - JSON files (appsettings.json)
 - Environment variables
@@ -52,7 +58,7 @@ builder.Services.Configure<EmailSettings>(
 - Azure Key Vault
 - User secrets (development)
 
-#### Use Cases
+## Use Cases
 
 - Application settings
 - Connection strings
@@ -60,7 +66,7 @@ builder.Services.Configure<EmailSettings>(
 - Environment-specific configuration
 - Secrets management
 
-#### Sample Usage
+## Sample Usage
 
 ```csharp
 // Using IOptions pattern
@@ -99,5 +105,3 @@ public class DatabaseService
     }
 }
 ```
-
----

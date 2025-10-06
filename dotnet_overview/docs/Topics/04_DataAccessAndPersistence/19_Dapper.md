@@ -1,18 +1,22 @@
-### Dapper
+---
+slug: dapper
+title: Dapper
+tags: [dotnet, core, dapper, database, persistance, orm]
+---
 
-#### Short Introduction
+# Dapper
+
+## Short Introduction
 
 Dapper is a lightweight, fast, and efficient micro-ORM (Object-Relational Mapping) for .NET applications. Created by Stack Overflow team, it bridges the gap between raw ADO.NET and full-featured ORMs like Entity Framework Core.
 
 Dapper is a simple object mapper for .NET that provides a fast, lightweight alternative to Entity Framework. It bridges the gap between raw ADO.NET and full ORMs by offering simple object mapping capabilities without the complexity of change tracking or lazy loading.
 
-### Official Definition
+## Official Definition
 
-Dapper is a simple object mapper for .NET that extends IDbConnection with high-performance extension methods for querying and manipulating databases. It's designed to be fast, lightweight, and close to the metal while still providing object mapping capabilities.
+Dapper is a micro-ORM for .NET that extends `IDbConnection` with high-performance methods for executing SQL commands and mapping results to strongly-typed objects. It is designed to be fast, lightweight, and close to the metal, focusing on speed and simplicity rather than feature completeness.
 
-Dapper is a micro-ORM that extends `IDbConnection` with methods to execute SQL commands and map results to strongly-typed objects. It focuses on speed and simplicity rather than feature completeness.
-
-### Usage
+## Usage
 
 ```bash
 # Install Dapper
@@ -50,7 +54,7 @@ var connectionString = "Server=localhost;Database=HotelDB;Integrated Security=tr
 using var connection = new SqlConnection(connectionString);
 ```
 
-### Use Cases
+## Use Cases
 
 - High-performance data access scenarios (database)
 - Legacy database integration with complex stored procedures
@@ -60,9 +64,9 @@ using var connection = new SqlConnection(connectionString);
 - Data migration and ETL processes
 - Bulk data operations
 
-### When to Use vs When Not to Use
+## When to Use vs When Not to Use
 
-**Use Dapper when:**
+### Use Dapper when:
 
 - Performance is critical and you need speed close to raw ADO.NET
 - Minimal ORM overhead required
@@ -72,7 +76,7 @@ using var connection = new SqlConnection(connectionString);
 - Need to execute stored procedures or complex queries that are hard to express in LINQ
 - Building read-heavy applications
 
-**Don't use Dapper when:**
+### Don't use Dapper when:
 
 - Rapid development is prioritized over performance
 - Team lacks SQL expertise
@@ -82,12 +86,14 @@ using var connection = new SqlConnection(connectionString);
 - Want automatic database schema migrations
 - Complex domain models with relationships
 
-### Market Alternatives and Market Adoption
+## Market Alternatives and Market Adoption
 
-**Market Position:** Widely adopted in performance-critical applications, especially at Stack Overflow, and popular in enterprise environments.
+### Market Position:
+
+Widely adopted in performance-critical applications, especially at Stack Overflow, and popular in enterprise environments.
 Dapper strikes a balance between EF Core's convenience and ADO.NET's performance.
 
-**Alternatives:**
+### Alternatives:
 
 - Entity Framework Core (full-featured ORM)
 - NHibernate (mature ORM)
@@ -95,9 +101,9 @@ Dapper strikes a balance between EF Core's convenience and ADO.NET's performance
 - Massive (dynamic micro-ORM)
 - Raw ADO.NET (maximum control)
 
-### Pros and Cons
+## Pros and Cons
 
-**Pros:**
+### Pros:
 
 - Excellent performance (close to raw ADO.NET)
 - Simple learning curve
@@ -107,7 +113,7 @@ Dapper strikes a balance between EF Core's convenience and ADO.NET's performance
 - Flexible parameter binding
 - Lightweight footprint
 
-**Cons:**
+### Cons:
 
 - No change tracking
 - Manual SQL writing required
@@ -118,7 +124,7 @@ Dapper strikes a balance between EF Core's convenience and ADO.NET's performance
 - No automatic relationship handling
 - Less productivity for complex domains
 
-### Sample Usage 1
+## Sample Usage 1
 
 ```csharp
 // Package reference: <PackageReference Include="Dapper" Version="2.1.24" />
@@ -220,7 +226,7 @@ var guestId = await guestService.CreateGuestAsync(newGuest);
 var retrievedGuest = await guestService.GetGuestByIdAsync(guestId);
 ```
 
-### Sample Usage 2
+## Sample Usage 2
 
 ```csharp
 // Models/User.cs
@@ -402,5 +408,3 @@ public class UsersController : ControllerBase
     }
 }
 ```
-
----

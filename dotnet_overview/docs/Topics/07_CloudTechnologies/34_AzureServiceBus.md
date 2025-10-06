@@ -1,14 +1,22 @@
-## 35. Azure Service Bus
+---
+slug: azure_service_bus
+title: Azure Service Bus
+tags: [dotnet, azure, service_bus, message, broker]
+---
 
-### Short Introduction + Official Definition
+# Azure Service Bus
+
+## Short Introduction
 
 Azure Service Bus is a fully managed enterprise message broker with message queues and publish-subscribe topics. It provides reliable cloud messaging between applications and services, supporting advanced messaging patterns like sessions, transactions, and dead lettering.
 
-**Official Definition**: "Azure Service Bus is a fully managed enterprise integration message broker. Service Bus can decouple applications and services. Service Bus offers a reliable and secure platform for asynchronous transfer of data and state."
+## Official Definition
 
-### Setup and Deployment Steps
+"Azure Service Bus is a fully managed enterprise integration message broker. Service Bus can decouple applications and services. Service Bus offers a reliable and secure platform for asynchronous transfer of data and state."
 
-**Azure CLI Setup**:
+## Setup and Deployment Steps
+
+### Azure CLI Setup
 
 ```bash
 # Create Service Bus namespace
@@ -24,7 +32,7 @@ az servicebus topic create --resource-group myResourceGroup --namespace-name mys
 az servicebus topic subscription create --resource-group myResourceGroup --namespace-name myservicebus --topic-name mytopic --name mysubscription
 ```
 
-**Bicep Template**:
+### Bicep Template
 
 ```bicep
 resource serviceBusNamespace 'Microsoft.ServiceBus/namespaces@2022-10-01-preview' = {
@@ -47,15 +55,15 @@ resource serviceBusQueue 'Microsoft.ServiceBus/namespaces/queues@2022-10-01-prev
 }
 ```
 
-### Typical Usage and Integration with .NET Apps
+## Typical Usage and Integration with .NET Apps
 
-**NuGet Package**:
+### NuGet Package
 
 ```xml
 <PackageReference Include="Azure.Messaging.ServiceBus" Version="7.17.0" />
 ```
 
-**Service Registration and Configuration**:
+### Service Registration and Configuration
 
 ```csharp
 // appsettings.json
@@ -79,7 +87,7 @@ builder.Services.AddSingleton<ServiceBusClient>(provider =>
 builder.Services.AddScoped<IMessageService, MessageService>();
 ```
 
-**Message Service Implementation**:
+### Message Service Implementation
 
 ```csharp
 public interface IMessageService
@@ -169,7 +177,7 @@ public class OrderCreatedEvent
 }
 ```
 
-**Background Service for Message Processing**:
+### Background Service for Message Processing
 
 ```csharp
 public class OrderProcessingService : BackgroundService
@@ -198,7 +206,7 @@ public class OrderProcessingService : BackgroundService
 }
 ```
 
-### Use Cases
+## Use Cases
 
 - Decoupling microservices communication
 - Reliable message delivery with retry mechanisms
@@ -207,9 +215,9 @@ public class OrderProcessingService : BackgroundService
 - Integration with legacy systems
 - Workflow orchestration and saga patterns
 
-### When to Use vs Alternatives
+## When to Use vs Alternatives
 
-**Use Azure Service Bus when**:
+### Use Azure Service Bus when
 
 - Advanced messaging features needed (sessions, transactions, duplicate detection)
 - Enterprise-grade reliability and security required
@@ -217,23 +225,23 @@ public class OrderProcessingService : BackgroundService
 - Complex routing and filtering capabilities needed
 - FIFO (First-In-First-Out) ordering is critical
 
-**Don't use when**:
+### Don't use when
 
 - Simple queue requirements (Azure Storage Queues sufficient)
 - Cost optimization is primary concern
 - Ultra-high throughput needed (consider Event Hubs)
 - Real-time communication required (use SignalR)
 
-**Alternatives**:
+### Alternatives
 
 - **Azure**: Storage Queues (simpler), Event Hubs (high throughput), Event Grid (event routing)
 - **AWS**: SQS, SNS, Amazon MQ
 - **GCP**: Cloud Tasks, Pub/Sub
 - **Open Source**: RabbitMQ, Apache Kafka
 
-### Market Pros/Cons and Cost Considerations
+## Market Pros/Cons and Cost Considerations
 
-**Pros**:
+### Pros
 
 - Enterprise messaging features (sessions, transactions, duplicate detection)
 - Dead letter queues for failed messages
@@ -241,14 +249,14 @@ public class OrderProcessingService : BackgroundService
 - Advanced security with Azure AD integration
 - Message scheduling and deferral
 
-**Cons**:
+### Cons
 
 - More expensive than simple queue solutions
 - Complexity overhead for simple scenarios
 - Learning curve for advanced features
 - Potential vendor lock-in
 
-**Cost Considerations**:
+### Cost Considerations
 
 - Basic tier: ~$0.05 per million operations
 - Standard tier: ~$10/month base + $0.80 per million operations

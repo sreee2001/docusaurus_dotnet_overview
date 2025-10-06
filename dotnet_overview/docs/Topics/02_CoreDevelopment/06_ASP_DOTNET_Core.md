@@ -1,14 +1,20 @@
-### ASP.NET Core
+---
+slug: asp_dotnet_core
+title: ASP.NET Core
+tags: [dotnet, asp, core]
+---
 
-#### Short Introduction
+# ASP.NET Core
+
+## Short Introduction
 
 ASP.NET Core is a cross-platform, high-performance framework for building modern, cloud-based, Internet-connected applications.
 
-#### Official Definition
+## Official Definition
 
 ASP.NET Core is a free, open-source, and cross-platform framework for building modern cloud-based web applications on Windows, macOS, and Linux.
 
-#### Usage
+## Usage
 
 ```csharp
 // Program.cs - ASP.NET Core 8
@@ -40,7 +46,7 @@ app.MapRazorPages();
 app.Run();
 ```
 
-#### Use Cases
+## Use Cases
 
 - Web applications
 - RESTful APIs
@@ -48,22 +54,22 @@ app.Run();
 - Microservices
 - Backend services
 
-#### When to Use / When Not to Use
+## When to Use / When Not to Use
 
-**Use ASP.NET Core when:**
+### Use ASP.NET Core when:
 
 - Building web applications or APIs
 - Need high performance
 - Require cross-platform deployment
 - Want modern development patterns
 
-**Consider alternatives when:**
+### Consider alternatives when:
 
 - Simple static websites
 - Specific language requirements
 - Team expertise in other frameworks
 
-#### Market Alternatives
+## Market Alternatives
 
 - Spring Boot (Java)
 - Express.js (Node.js)
@@ -71,7 +77,7 @@ app.Run();
 - Ruby on Rails
 - Laravel (PHP)
 
-#### Sample Usage
+## Sample Usage
 
 ```csharp
 // Controller example
@@ -101,5 +107,3 @@ public class ProductsController : ControllerBase
     }
 }
 ```
-
----

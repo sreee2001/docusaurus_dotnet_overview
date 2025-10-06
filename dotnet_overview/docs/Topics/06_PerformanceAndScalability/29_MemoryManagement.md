@@ -1,14 +1,22 @@
-## 29. Memory Management
+---
+slug: memory_management
+title: Memory Management
+tags: [dotnet, performance, optimization, memory, management]
+---
 
-### Short Introduction and Official Definition
+# Memory Management
+
+## Short Introduction
 
 Memory management in .NET Core involves understanding and optimizing how the runtime allocates, tracks, and frees memory. This includes managing the Large Object Heap (LOH), configuring Garbage Collector modes, and implementing patterns that minimize memory pressure and improve application performance.
 
-**Official Definition**: Memory management in .NET is the automatic process by which the runtime allocates memory for objects, tracks their usage, and reclaims memory when objects are no longer needed, primarily through the Garbage Collector (GC).
+## Official Definition:
 
-### Setup/Usage
+Memory management in .NET is the automatic process by which the runtime allocates memory for objects, tracks their usage, and reclaims memory when objects are no longer needed, primarily through the Garbage Collector (GC).
 
-**GC Configuration in Program.cs:**
+## Setup/Usage
+
+### GC Configuration in Program.cs:
 
 ```csharp
 // Configure GC settings
@@ -21,7 +29,7 @@ builder.Services.Configure<GCSettings>(options =>
 });
 ```
 
-**Runtime Configuration (runtimeconfig.json):**
+### Runtime Configuration (runtimeconfig.json):
 
 ```json
 {
@@ -36,7 +44,7 @@ builder.Services.Configure<GCSettings>(options =>
 }
 ```
 
-### Use Cases
+## Use Cases
 
 - **High-throughput applications** requiring minimal GC pauses
 - **Memory-constrained environments** needing efficient memory usage
@@ -45,9 +53,9 @@ builder.Services.Configure<GCSettings>(options =>
 - **Large data processing** applications working with big objects
 - **Microservices** optimizing for quick startup and low memory footprint
 
-### When to Use vs When Not to Use
+## When to Use vs When Not to Use
 
-**When to Use Memory Optimization:**
+### When to Use Memory Optimization:
 
 - Application experiences frequent OutOfMemoryExceptions
 - GC pauses impact user experience or SLA requirements
@@ -55,16 +63,16 @@ builder.Services.Configure<GCSettings>(options =>
 - Application handles large objects or datasets
 - Running in memory-constrained environments
 
-**When Not to Optimize:**
+### When Not to Optimize:
 
 - Memory usage is well within acceptable limits
 - GC performance doesn't impact application requirements
 - Development effort outweighs memory optimization benefits
 - Application has short lifespan or minimal memory requirements
 
-### Alternatives and Trade-offs
+## Alternatives and Trade-offs
 
-**Alternatives:**
+### Alternatives:
 
 - Increase available memory (scale up approach)
 - Use external caching systems instead of in-memory caching
@@ -72,16 +80,16 @@ builder.Services.Configure<GCSettings>(options =>
 - Use streaming instead of loading entire datasets into memory
 - Offload memory-intensive operations to separate services
 
-**Trade-offs:**
+### Trade-offs:
 
 - Memory usage vs CPU usage (compression, lazy loading)
 - Performance vs memory efficiency
 - Code complexity vs memory optimization
 - Startup time vs runtime memory usage
 
-### Sample Code and Commands
+## Sample Code and Commands
 
-**LOH Management:**
+### LOH Management:
 
 ```csharp
 // Avoiding LOH allocations
@@ -146,7 +154,7 @@ public class ObjectPool<T> where T : class
 }
 ```
 
-**Memory-Efficient String Operations:**
+### Memory-Efficient String Operations:
 
 ```csharp
 public class StringOptimizations
@@ -192,7 +200,7 @@ public class StringOptimizations
 }
 ```
 
-**Weak References for Caches:**
+### Weak References for Caches:
 
 ```csharp
 public class WeakReferenceCache<TKey, TValue>
@@ -241,7 +249,7 @@ public class WeakReferenceCache<TKey, TValue>
 }
 ```
 
-**IDisposable and Memory Cleanup:**
+### IDisposable and Memory Cleanup:
 
 ```csharp
 public class ResourceManager : IDisposable, IAsyncDisposable
@@ -294,7 +302,7 @@ public class ResourceManager : IDisposable, IAsyncDisposable
 }
 ```
 
-**Memory Diagnostic Commands:**
+### Memory Diagnostic Commands:
 
 ```bash
 # Monitor GC activity
@@ -310,7 +318,7 @@ dotnet-trace collect --process-id <PID> --providers Microsoft-Windows-DotNETRunt
 dotnet-gcdump collect --process-id <PID>
 ```
 
-**Environment Variables for GC Tuning:**
+### Environment Variables for GC Tuning:
 
 ```bash
 # Server GC (for multi-core servers)
@@ -326,11 +334,8 @@ set DOTNET_GCLargePages=1
 set DOTNET_GCHeapCount=4
 ```
 
-—continued—
+### GC Tuning Configuration File:
 
-````
-
-**GC Tuning Configuration File:**
 ```json
 // runtimeconfig.template.json
 {
@@ -344,9 +349,9 @@ set DOTNET_GCHeapCount=4
     "System.GC.HeapHardLimit": 2147483648
   }
 }
-````
+```
 
-**Advanced Memory Profiling:**
+### Advanced Memory Profiling:
 
 ```csharp
 // Custom memory pressure monitoring
@@ -399,7 +404,7 @@ public class MemoryMonitoringService : BackgroundService
 }
 ```
 
-**PowerShell GC Tuning Commands:**
+### PowerShell GC Tuning Commands:
 
 ```powershell
 # Set environment variables for the current session
@@ -418,7 +423,7 @@ $env:DOTNET_GCHeapCount = "4"
 dotnet --info
 ```
 
-**Memory-Optimized appsettings.json:**
+### Memory-Optimized appsettings.json:
 
 ```json
 {
@@ -441,7 +446,3 @@ dotnet --info
   }
 }
 ```
-
-This completes the **VI. Performance & Scalability** section covering caching, background services, performance optimization, and memory management. Each topic includes comprehensive setup instructions, use cases, alternatives, trade-offs, and practical code examples that can be implemented in .NET 8 applications.
-
-The section provides developers with actionable guidance for optimizing their applications' performance through proper caching strategies, efficient background processing, systematic performance measurement and optimization, and effective memory management techniques.

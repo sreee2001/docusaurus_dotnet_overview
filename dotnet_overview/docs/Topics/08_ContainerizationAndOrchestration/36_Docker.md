@@ -1,16 +1,22 @@
-## 36. Docker
+---
+slug: docker
+title: Docker
+tags: [dotnet, containers, docker]
+---
 
-### Short Introduction
+# Docker
+
+## Short Introduction
 
 Docker is a containerization platform that packages applications and their dependencies into lightweight, portable containers. For .NET applications, Docker enables consistent deployment across different environments, from development to production, ensuring "it works on my machine" becomes "it works everywhere."
 
-### Official Definition
+## Official Definition
 
 Docker is an open platform for developing, shipping, and running applications using container virtualization. Docker containers wrap up software in a complete filesystem that contains everything needed to run: code, runtime, system tools, system libraries, and settings.
 
-### Setup/Usage with .NET 8+ Code
+## Setup/Usage with .NET 8+ Code
 
-**Basic Dockerfile for .NET 8:**
+### Basic Dockerfile for .NET 8
 
 ```dockerfile
 # Use the official .NET 8 runtime as base image
@@ -40,7 +46,7 @@ COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "HotelManagement.WebAPI.dll"]
 ```
 
-**Docker Compose for multi-service setup:**
+### Docker Compose for multi-service setup:
 
 ```yaml
 # docker-compose.yml
@@ -91,7 +97,7 @@ networks:
     driver: bridge
 ```
 
-### Use Cases
+## Use Cases
 
 - **Consistent Environments**: Eliminate "works on my machine" issues
 - **Microservices Deployment**: Package individual services independently
@@ -100,9 +106,9 @@ networks:
 - **Cloud Migration**: Easier transition between cloud providers
 - **Scaling**: Horizontal scaling with container orchestration
 
-### When to Use vs When Not to Use
+## When to Use vs When Not to Use
 
-**Use Docker when:**
+### Use Docker when
 
 - Building microservices or distributed applications
 - Need consistent deployment across environments
@@ -111,7 +117,7 @@ networks:
 - Scaling applications horizontally
 - Working in team environments
 
-**Consider alternatives when:**
+### Consider alternatives when
 
 - Simple single-server applications
 - Windows-specific applications requiring full OS features
@@ -119,9 +125,9 @@ networks:
 - Limited storage or bandwidth constraints
 - Team lacks containerization knowledge
 
-### Market Alternatives & Pros/Cons
+## Market Alternatives & Pros/Cons
 
-**Alternatives:**
+### Alternatives:
 
 - **Podman**: Daemonless container engine
 - **containerd**: Industry-standard container runtime
@@ -129,7 +135,7 @@ networks:
 - **Windows Containers**: Native Windows containerization
 - **Virtual Machines**: Traditional virtualization
 
-**Pros:**
+### Pros:
 
 - Lightweight compared to VMs
 - Fast startup times
@@ -138,7 +144,7 @@ networks:
 - Large ecosystem and community support
 - Efficient resource utilization
 
-**Cons:**
+### Cons:
 
 - Learning curve for teams
 - Additional complexity in simple scenarios
@@ -146,9 +152,9 @@ networks:
 - Security considerations with shared kernel
 - Windows containers have limitations
 
-### Complete Runnable Sample
+## Complete Runnable Sample
 
-**Multi-stage Production Dockerfile:**
+### Multi-stage Production Dockerfile:
 
 ```dockerfile
 # HotelManagement.WebAPI/Dockerfile
@@ -189,7 +195,7 @@ HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
 ENTRYPOINT ["dotnet", "HotelManagement.WebAPI.dll"]
 ```
 
-**Docker Commands:**
+### Docker Commands
 
 ```bash
 # Build the image
@@ -217,7 +223,7 @@ docker-compose up -d
 docker-compose up -d --scale hotel-api=3
 ```
 
-**.dockerignore:**
+### .dockerignore
 
 ```
 # Ignore unnecessary files
@@ -247,7 +253,7 @@ LICENSE
 README.md
 ```
 
-**Production-ready docker-compose.override.yml:**
+### Production-ready docker-compose.override.yml
 
 ```yaml
 # docker-compose.override.yml (for production)

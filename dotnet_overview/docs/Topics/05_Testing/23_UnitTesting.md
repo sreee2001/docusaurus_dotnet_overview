@@ -1,20 +1,26 @@
-## 9.1 Unit Testing
+---
+slug: unit_testing
+title: Unit Testing
+tags: [dotnet, testing, unit_testing, quality]
+---
+
+# Unit Testing
 
 Unit testing involves testing individual components or methods in isolation to verify they work as expected. It's the foundation of a robust testing strategy and enables rapid feedback during development.
 
-### Official Definition/Standards
+## Official Definition/Standards
 
 Unit testing is a software testing method where individual units or components of software are tested in isolation. In .NET, the standard approach follows the AAA pattern (Arrange, Act, Assert) and uses frameworks like xUnit, NUnit, or MSTest with mocking libraries like Moq.
 
-### Setup and Usage (Tools, Packages, Test Runners)
+## Setup and Usage (Tools, Packages, Test Runners)
 
-**Primary Testing Frameworks:**
+### Primary Testing Frameworks:
 
 - **xUnit.net**: Modern, extensible testing framework (recommended for new projects)
 - **NUnit**: Feature-rich framework with extensive assertions
 - **MSTest**: Microsoft's testing framework, integrated with Visual Studio
 
-**Essential Packages:**
+### Essential Packages:
 
 ```bash
 dotnet add package xunit
@@ -24,16 +30,16 @@ dotnet add package Moq  # For mocking
 dotnet add package FluentAssertions  # Enhanced assertions
 ```
 
-**Test Runners:**
+### Test Runners:
 
 - Visual Studio Test Explorer
 - dotnet test CLI command
 - JetBrains Rider
 - VS Code with C# extension
 
-### Typical Test Architecture and Patterns
+## Typical Test Architecture and Patterns
 
-**Common Patterns:**
+### Common Patterns:
 
 - **AAA Pattern**: Arrange (setup), Act (execute), Assert (verify)
 - **Given-When-Then**: BDD-style test structure
@@ -41,7 +47,7 @@ dotnet add package FluentAssertions  # Enhanced assertions
 - **Parametrized Tests**: Data-driven testing
 - **Mock/Stub/Fake**: Test doubles for dependencies
 
-**Project Structure:**
+### Project Structure:
 
 ```
 MyProject.sln
@@ -55,7 +61,7 @@ MyProject.sln
         └── TestData/
 ```
 
-### Example Test Code
+## Example Test Code
 
 ```csharp
 // Package references in test project:
@@ -320,9 +326,9 @@ public class BookingServiceComplexTests
 }
 ```
 
-### When to Use and When Not to Use
+## When to Use and When Not to Use
 
-**Use Unit Testing when:**
+### Use Unit Testing when:
 
 - Testing business logic in isolation
 - Verifying individual method behavior
@@ -331,7 +337,7 @@ public class BookingServiceComplexTests
 - Supporting continuous integration
 - Documenting expected behavior
 
-**Don't use Unit Testing when:**
+### Don't use Unit Testing when:
 
 - Testing UI interactions (use integration tests)
 - Testing database queries (use integration tests)
@@ -339,9 +345,9 @@ public class BookingServiceComplexTests
 - Over-testing simple property getters/setters
 - Testing framework code that's already tested
 
-### Pros and Cons and Alternatives
+## Pros and Cons and Alternatives
 
-**Pros:**
+### Pros:
 
 - Fast execution and feedback
 - Isolates problems to specific components
@@ -350,7 +356,7 @@ public class BookingServiceComplexTests
 - Supports test-driven development
 - Easy to automate in CI/CD
 
-**Cons:**
+### Cons:
 
 - Can miss integration issues
 - Requires mocking dependencies
@@ -359,7 +365,7 @@ public class BookingServiceComplexTests
 - False confidence from excessive mocking
 - Time investment for comprehensive coverage
 
-**Alternatives:**
+### Alternatives:
 
 - Integration testing for broader coverage
 - Property-based testing (FsCheck)

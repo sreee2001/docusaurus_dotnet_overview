@@ -1,12 +1,19 @@
-## 5.5 Unit of Work
+---
+slug: unit_of_work
+title: Unit of Work
+tags:
+  [dotnet, database, uow, unit_of_work, patterns, design_pattern, architecture]
+---
+
+# Unit of Work
 
 The Unit of Work pattern maintains a list of objects affected by a business transaction and coordinates writing out changes and resolving concurrency problems. It ensures that multiple repository operations are treated as a single transaction.
 
-### Official Definition
+## Official Definition
 
 The Unit of Work pattern maintains a list of objects affected by a business transaction and coordinates writing out changes. It tracks changes to objects during a business transaction and coordinates writing out changes as a single operation.
 
-### Usage
+## Usage
 
 Implement by creating a class that manages multiple repositories and provides a single commit method. Often used with Entity Framework's DbContext, which already implements the Unit of Work pattern internally.
 
@@ -20,7 +27,7 @@ public interface IUnitOfWork : IDisposable
 }
 ```
 
-### Use Cases
+## Use Cases
 
 - Coordinating multiple repository operations in a single transaction
 - Ensuring data consistency across multiple entities
@@ -29,9 +36,9 @@ public interface IUnitOfWork : IDisposable
 - Batch processing multiple changes efficiently
 - Implementing saga patterns in microservices
 
-### When to Use vs When Not to Use
+## When to Use vs When Not to Use
 
-**Use Unit of Work when:**
+### Use Unit of Work when:
 
 - Operations span multiple repositories or entities
 - Need explicit transaction control
@@ -40,7 +47,7 @@ public interface IUnitOfWork : IDisposable
 - Building systems with strict consistency requirements
 - Need to optimize database round trips
 
-**Don't use Unit of Work when:**
+### Don't use Unit of Work when:
 
 - Using Entity Framework DbContext directly (it's already a UoW)
 - Operations are simple and single-entity focused
@@ -48,13 +55,13 @@ public interface IUnitOfWork : IDisposable
 - Team lacks understanding of transaction concepts
 - Performance overhead is not justified
 
-### Market Alternatives and Market Adoption
+## Market Alternatives and Market Adoption
 
 Entity Framework Core's DbContext implements the Unit of Work pattern internally. Alternatives include manual transaction management, distributed transaction coordinators, and message-based eventual consistency patterns. Many modern applications use DbContext directly rather than implementing additional UoW abstractions.
 
-### Pros and Cons
+## Pros and Cons
 
-**Pros:**
+### Pros:
 
 - Ensures transactional consistency
 - Optimizes database round trips
@@ -63,7 +70,7 @@ Entity Framework Core's DbContext implements the Unit of Work pattern internally
 - Enables rollback of multiple changes
 - Coordinates multiple repositories
 
-**Cons:**
+### Cons:
 
 - Adds complexity to simple operations
 - Can create tight coupling between entities
@@ -72,7 +79,7 @@ Entity Framework Core's DbContext implements the Unit of Work pattern internally
 - May duplicate EF Core functionality
 - Requires careful lifecycle management
 
-### Sample Usage
+## Sample Usage
 
 ```csharp
 // Package reference: Microsoft.EntityFrameworkCore

@@ -1,12 +1,19 @@
-## 5.4 Repository Pattern
+---
+slug: repository_pattern
+title: Repository Pattern
+tags:
+  [dotnet, database, repository_pattern, patterns, design_pattern, architecture]
+---
+
+# Repository Pattern
 
 The Repository Pattern encapsulates the logic needed to access data sources, centralizing common data access functionality and providing better maintainability and decoupling infrastructure or technology used to access databases from the domain model layer.
 
-### Official Definition
+## Official Definition
 
 The Repository Pattern is a design pattern that encapsulates the logic required to access data sources. It centralizes common data access functionality, promoting better maintainability and decoupling the infrastructure or technology used to access databases from the domain model layer.
 
-### Usage
+## Usage
 
 Implement by creating interfaces that define data access operations and concrete implementations that handle the actual data access logic. Often combined with dependency injection for better testability.
 
@@ -21,7 +28,7 @@ public interface IRepository<T>
 }
 ```
 
-### Use Cases
+## Use Cases
 
 - Abstracting data access logic from business logic
 - Supporting multiple data sources or switching between them
@@ -30,9 +37,9 @@ public interface IRepository<T>
 - Implementing domain-driven design principles
 - Creating clean architecture boundaries
 
-### When to Use vs When Not to Use
+## When to Use vs When Not to Use
 
-**Use Repository Pattern when:**
+### Use Repository Pattern when:
 
 - Building applications with complex business logic
 - Need to support multiple data sources
@@ -41,7 +48,7 @@ public interface IRepository<T>
 - Team needs clear separation of concerns
 - Planning to switch data access technologies
 
-**Don't use Repository Pattern when:**
+### Don't use Repository Pattern when:
 
 - Building simple CRUD applications
 - Using Entity Framework with direct DbContext access
@@ -49,13 +56,13 @@ public interface IRepository<T>
 - Over-engineering concerns outweigh benefits
 - Performance is critical and abstraction adds overhead
 
-### Market Alternatives and Market Adoption
+## Market Alternatives and Market Adoption
 
 The Repository Pattern is widely adopted in enterprise .NET applications. Alternatives include direct ORM usage (Entity Framework DbContext), Active Record pattern, and Data Access Objects (DAO). Many modern frameworks like Entity Framework already implement repository-like patterns internally.
 
-### Pros and Cons
+## Pros and Cons
 
-**Pros:**
+### Pros:
 
 - Clear separation of concerns
 - Improved testability
@@ -64,7 +71,7 @@ The Repository Pattern is widely adopted in enterprise .NET applications. Altern
 - Supports multiple data sources
 - Promotes clean architecture
 
-**Cons:**
+### Cons:
 
 - Can add unnecessary complexity
 - Additional abstraction layer
@@ -73,7 +80,7 @@ The Repository Pattern is widely adopted in enterprise .NET applications. Altern
 - Can become over-engineered
 - Learning curve for developers
 
-### Sample Usage
+## Sample Usage
 
 ```csharp
 // Package references might include Entity Framework or Dapper

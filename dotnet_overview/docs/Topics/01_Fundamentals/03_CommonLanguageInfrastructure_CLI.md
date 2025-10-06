@@ -1,14 +1,20 @@
-### Common Language Infrastructure (CLI)
+---
+slug: clr
+title: Common Language Infrastructure (CLI)
+tags: [dotnet, clr, runtime, cross-platform]
+---
 
-#### Short Introduction
+# Common Language Infrastructure (CLI)
+
+## Short Introduction
 
 CLI is the open specification that describes the executable code and runtime environment that allows multiple high-level languages to be used on different computer platforms.
 
-#### Official Definition
+## Official Definition
 
 The Common Language Infrastructure (CLI) is an open specification developed by Microsoft that describes executable code and a runtime environment that allows multiple high-level languages to be used on different computer platforms without being rewritten for specific architectures.
 
-#### Usage
+## Usage
 
 Key components:
 
@@ -17,13 +23,13 @@ Key components:
 - Virtual Execution System (VES)
 - Metadata system
 
-#### Use Cases
+## Use Cases
 
 - Cross-language interoperability
 - Platform independence
 - Code sharing between different .NET languages
 
-#### Sample Usage
+## Sample Usage
 
 ```csharp
 // C# code
@@ -41,5 +47,3 @@ Public Class Calculator
     End Function
 End Class
 ```
-
----

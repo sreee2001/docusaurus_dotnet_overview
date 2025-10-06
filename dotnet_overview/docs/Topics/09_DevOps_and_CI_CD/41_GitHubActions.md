@@ -1,16 +1,22 @@
-## 41. GitHub Actions
+---
+slug: github_actions
+title: GitHub Actions
+tags: [dotnet, github, actions, cicd, yaml]
+---
 
-### Short Introduction
+# GitHub Actions
+
+## Short Introduction
 
 GitHub Actions is a CI/CD platform integrated directly into GitHub repositories, allowing developers to automate software workflows including building, testing, and deploying applications. It uses YAML-based workflow files and provides a marketplace of pre-built actions for common development tasks.
 
-### Official Definition
+## Official Definition
 
 GitHub Actions is a continuous integration and continuous delivery (CI/CD) platform that allows you to automate your build, test, and deployment pipeline. You can create workflows that build and test every pull request to your repository, or deploy merged pull requests to production.
 
-### Setup/Usage with .NET 8+ Code
+## Setup/Usage with .NET 8+ Code
 
-**Basic .NET Workflow:**
+### Basic .NET Workflow
 
 ```yaml
 # .github/workflows/dotnet.yml
@@ -94,7 +100,7 @@ jobs:
           package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
 ```
 
-**Advanced Multi-Environment Workflow:**
+### Advanced Multi-Environment Workflow
 
 ```yaml
 # .github/workflows/advanced-pipeline.yml
@@ -262,7 +268,7 @@ jobs:
           prerelease: false
 ```
 
-### Use Cases
+## Use Cases
 
 - **Open Source Projects**: Free CI/CD for public repositories
 - **GitHub-Centric Development**: Teams already using GitHub for source control
@@ -271,9 +277,9 @@ jobs:
 - **Community-Driven Solutions**: Large marketplace of community actions
 - **Cost-Effective CI/CD**: Generous free tier for both public and private repos
 
-### When to Use vs When Not to Use
+## When to Use vs When Not to Use
 
-**Use GitHub Actions when:**
+### Use GitHub Actions when
 
 - Source code is hosted on GitHub
 - Need cost-effective CI/CD solution
@@ -282,7 +288,7 @@ jobs:
 - Working with open source projects
 - Need simple, maintainable workflows
 
-**Consider alternatives when:**
+### Consider alternatives when
 
 - Using other source control systems (GitLab, Azure Repos)
 - Need advanced enterprise features
@@ -290,9 +296,9 @@ jobs:
 - Building extremely complex deployment pipelines
 - Need tighter integration with Microsoft ecosystem
 
-### Market Alternatives & Pros/Cons
+## Market Alternatives & Pros/Cons
 
-**Alternatives:**
+### Alternatives:
 
 - **Azure DevOps**: More enterprise features, Microsoft integration
 - **GitLab CI/CD**: Integrated with GitLab, comprehensive DevOps platform
@@ -301,7 +307,7 @@ jobs:
 - **Travis CI**: Simple setup, good for open source
 - **AWS CodePipeline**: Native AWS integration
 
-**Pros:**
+### Pros:
 
 - Deeply integrated with GitHub
 - Large marketplace of community actions
@@ -310,7 +316,7 @@ jobs:
 - Excellent container and cloud integrations
 - Built-in security scanning capabilities
 
-**Cons:**
+### Cons:
 
 - Limited to GitHub ecosystem
 - Can become expensive for large private repositories
@@ -318,9 +324,9 @@ jobs:
 - Runner limitations for compute-intensive tasks
 - Fewer advanced deployment patterns
 
-### Complete Runnable Sample
+## Complete Runnable Sample
 
-**Production-Ready Workflow with Multiple Environments:**
+### Production-Ready Workflow with Multiple Environments
 
 ```yaml
 # .github/workflows/production-pipeline.yml

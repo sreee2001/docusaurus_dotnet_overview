@@ -1,14 +1,22 @@
-## 28. Performance Optimization
+---
+slug: performance_optimization
+title: Performance Optimization
+tags: [dotnet, performance, optimization]
+---
 
-### Short Introduction and Official Definition
+# Performance Optimization
+
+## Short Introduction
 
 Performance optimization in .NET Core involves analyzing, measuring, and improving application speed, throughput, and resource utilization. It encompasses profiling, JIT/AOT compilation strategies, threading optimizations, and runtime tuning.
 
-**Official Definition**: Performance optimization is the systematic process of making .NET applications run faster and use resources more efficiently through code improvements, configuration tuning, and runtime optimizations.
+## Official Definition:
 
-### Setup/Usage
+Performance optimization is the systematic process of making .NET applications run faster and use resources more efficiently through code improvements, configuration tuning, and runtime optimizations.
 
-**Profiling Tools Setup:**
+## Setup/Usage
+
+### Profiling Tools Setup:
 
 ```xml
 <!-- Add to .csproj for profiling -->
@@ -16,7 +24,7 @@ Performance optimization in .NET Core involves analyzing, measuring, and improvi
 <PackageReference Include="BenchmarkDotNet" Version="0.13.8" />
 ```
 
-**AOT Publishing:**
+### AOT Publishing:
 
 ```xml
 <!-- Enable AOT in .csproj -->
@@ -26,7 +34,7 @@ Performance optimization in .NET Core involves analyzing, measuring, and improvi
 </PropertyGroup>
 ```
 
-### Use Cases
+## Use Cases
 
 - **High-traffic web applications** requiring low latency
 - **Microservices** with strict SLA requirements
@@ -35,9 +43,9 @@ Performance optimization in .NET Core involves analyzing, measuring, and improvi
 - **Cost optimization** in cloud deployments
 - **Batch processing** applications handling large datasets
 
-### When to Use vs When Not to Use
+## When to Use vs When Not to Use
 
-**When to Use:**
+### When to Use:
 
 - Performance bottlenecks are identified through profiling
 - Application doesn't meet performance requirements
@@ -45,7 +53,7 @@ Performance optimization in .NET Core involves analyzing, measuring, and improvi
 - User experience is impacted by slow response times
 - Scaling requirements demand optimization
 
-**When Not to Use:**
+### When Not to Use:
 
 - Premature optimization without measurement
 - Development time outweighs performance benefits
@@ -53,9 +61,9 @@ Performance optimization in .NET Core involves analyzing, measuring, and improvi
 - Temporary or prototype applications
 - When optimization adds significant complexity
 
-### Alternatives and Trade-offs
+## Alternatives and Trade-offs
 
-**Alternatives:**
+### Alternatives:
 
 - Horizontal scaling instead of optimization
 - Caching layers to mask performance issues
@@ -63,16 +71,16 @@ Performance optimization in .NET Core involves analyzing, measuring, and improvi
 - Database optimization and indexing
 - Infrastructure upgrades (faster CPUs, more RAM)
 
-**Trade-offs:**
+### Trade-offs:
 
 - Development time vs performance gains
 - Code complexity vs execution speed
 - Memory usage vs CPU usage
 - Startup time vs runtime performance (AOT vs JIT)
 
-### Sample Code and Commands
+## Sample Code and Commands
 
-**BenchmarkDotNet Example:**
+### BenchmarkDotNet Example:
 
 ```csharp
 using BenchmarkDotNet.Attributes;
@@ -125,7 +133,7 @@ class Program
 }
 ```
 
-**ThreadPool Tuning:**
+### ThreadPool Tuning:
 
 ```csharp
 // Program.cs - Configure ThreadPool
@@ -147,7 +155,7 @@ builder.Services.Configure<KestrelServerOptions>(options =>
 });
 ```
 
-**High-Performance HTTP Client:**
+### High-Performance HTTP Client:
 
 ```csharp
 // Efficient HttpClient usage
@@ -175,7 +183,7 @@ public class OptimizedHttpService
 }
 ```
 
-**Memory-Efficient Collections:**
+### Memory-Efficient Collections:
 
 ```csharp
 // Use Span<T> and Memory<T> for high-performance scenarios
@@ -212,7 +220,7 @@ public class HighPerformanceProcessor
 }
 ```
 
-**Performance Commands:**
+### Performance Commands:
 
 ```bash
 # Build with AOT

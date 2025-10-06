@@ -1,14 +1,34 @@
-## Application Insights (Observability + Instrumentation)
+---
+slug: application_insights
+title: Application Insights (Observability + Instrumentation)
+tags:
+  [
+    dotnet,
+    application,
+    insights,
+    observability,
+    instrumentation,
+    APM,
+    service,
+    metrics,
+  ]
+---
 
-### Short Introduction + Official Definition
+# Application Insights (Observability + Instrumentation)
 
-Application Insights is Azure's application performance management (APM) service that provides deep insights into application performance, availability, and usage. It automatically collects telemetry data and provides powerful analytics and alerting capabilities.
+## Short Introduction
 
-**Official Definition**: "Application Insights, a feature of Azure Monitor, is an extensible Application Performance Management (APM) service for developers and DevOps professionals. Use it to monitor your live applications automatically."
+Application Insights is Azure's application performance management (APM) service that provides real-time monitoring, diagnostics, and analytics for .NET applications. It automatically collects telemetry data including requests, dependencies, exceptions, and custom metrics, enabling developers to detect issues, optimize performance, and understand user behavior.
 
-### Setup and Deployment Steps
+## Official Definition
 
-**Azure CLI Setup**:
+"Application Insights, a feature of Azure Monitor, is an extensible Application Performance Management (APM) service for developers and DevOps professionals. Use it to monitor your live applications automatically."
+
+Application Insights is a feature of Azure Monitor that provides extensible application performance management (APM) and monitoring for live web applications. It works for apps on a wide variety of platforms including .NET, Node.js, Java, and Python hosted on-premises, hybrid, or any public cloud.
+
+## Setup and Deployment
+
+### Azure CLI Setup
 
 ```bash
 # Create Application Insights resource
@@ -18,7 +38,7 @@ az monitor app-insights component create --app myapp --location eastus --resourc
 az monitor app-insights component show --app myapp --resource-group myResourceGroup --query instrumentationKey
 ```
 
-**Bicep Template**:
+### Bicep Template
 
 ```bicep
 resource appInsights 'Microsoft.Insights/components@2020-02-02' = {
@@ -36,62 +56,297 @@ output instrumentationKey string = appInsights.properties.InstrumentationKey
 output connectionString string = appInsights.properties.ConnectionString
 ```
 
-### Typical Usage and Integration with .NET Apps
+### Minimal Sample: Deploy ASP.NET Core App to App Service with Application Insights
 
-**NuGet Package**:
+```bash
+# Variables
+RESOURCE_GROUP="hotel-demo-rg"
+APP_NAME="hotel-api-$(date +%s)"
+LOCATION="eastus"
+APP_SERVICE_PLAN="hotel-plan"
 
-```xml
-<PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.21.0" />
+# Create resource group
+az group create --name $RESOURCE_GROUP --location $LOCATION
+
+# Create App Service plan
+az appservice plan create --name $APP_SERVICE_PLAN --resource-group $RESOURCE_GROUP --sku B1
+
+# Create Application Insights
+az monitor app-insights component create \
+    --app $APP_NAME-insights \
+    --location $LOCATION \
+    --resource-group $RESOURCE_GROUP \
+    --application-type web
+
+# Get Application Insights connection string
+INSIGHTS_CONNECTION=$(az monitor app-insights component show \
+    --app $APP_NAME-insights \
+    --resource-group $RESOURCE_GROUP \
+    --query connectionString -o tsv)
+
+# Create web app
+az webapp create \
+    --resource-group $RESOURCE_GROUP \
+    --plan $APP_SERVICE_PLAN \
+    --name $APP_NAME \
+    --runtime "DOTNET|8.0"
+
+# Configure Application Insights
+az webapp config appsettings set \
+    --resource-group $RESOURCE_GROUP \
+    --name $APP_NAME \
+    --settings "APPLICATIONINSIGHTS_CONNECTION_STRING=$INSIGHTS_CONNECTION"
+
+# Deploy app (assuming you have a zip package)
+# az webapp deployment source config-zip --resource-group $RESOURCE_GROUP --name $APP_NAME --src app.zip
+
+echo "App deployed to: https://$APP_NAME.azurewebsites.net"
+echo "Application Insights: https://portal.azure.com/#@/resource/subscriptions/.../resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Insights/components/$APP_NAME-insights"
 ```
 
-**Basic Configuration**:
+## Typical Usage and Integration with .NET Apps
 
-```csharp
+### NuGet Packages
+
+```bash
+dotnet add package Microsoft.ApplicationInsights.AspNetCore
+dotnet add package Microsoft.ApplicationInsights.PerfCounterCollector
+dotnet add package Microsoft.ApplicationInsights.EventCounterCollector
+```
+
+### Basic Configuration
+
+```json
 // appsettings.json
 {
   "ApplicationInsights": {
-    "ConnectionString": "InstrumentationKey=your-key;IngestionEndpoint=https://eastus-8.in.applicationinsights.azure.com/;LiveEndpoint=https://eastus.livediagnostics.monitor.azure.com/"
+    "ConnectionString": "InstrumentationKey=your-instrumentation-key;IngestionEndpoint=https://your-region.in.applicationinsights.azure.com/",
+    "EnableAdaptiveSampling": true,
+    "EnableQuickPulseMetricStream": true,
+    "EnableAuthenticationTrackingJavaScript": true
   },
   "Logging": {
     "LogLevel": {
-      "Default": "Information"
+      "Default": "Information",
+      "Microsoft": "Warning",
+      "Microsoft.Hosting.Lifetime": "Information"
     },
     "ApplicationInsights": {
       "LogLevel": {
-        "Default": "Information"
+        "Default": "Information",
+        "Microsoft": "Warning"
       }
     }
   }
 }
+```
 
-// Program.cs
+### Program.cs Configuration
+
+```csharp
 using Microsoft.ApplicationInsights.Extensibility;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add Application Insights
-builder.Services.AddApplicationInsightsTelemetry(builder.Configuration);
-
-// Configure sampling (optional)
-builder.Services.Configure<TelemetryConfiguration>(config =>
+builder.Services.AddApplicationInsightsTelemetry(options =>
 {
-    config.DefaultTelemetrySink.TelemetryProcessorChainBuilder
-        .UseAdaptiveSampling(maxTelemetryItemsPerSecond: 5)
-        .Build();
+    options.ConnectionString = builder.Configuration.GetConnectionString("ApplicationInsights");
+    options.EnableAdaptiveSampling = true;
+    options.EnableQuickPulseMetricStream = true;
+    options.EnableAuthenticationTrackingJavaScript = true;
 });
+
+// Add custom telemetry initializers
+builder.Services.AddSingleton<ITelemetryInitializer, CustomTelemetryInitializer>();
+
+// Add telemetry processors
+builder.Services.AddApplicationInsightsTelemetryProcessor<CustomTelemetryProcessor>();
 
 var app = builder.Build();
 
-// Add custom middleware for additional tracking
-app.UseMiddleware<RequestTelemetryMiddleware>();
+// Enable Application Insights middleware
+app.UseApplicationInsightsRequestTelemetry();
+
+app.MapControllers();
+app.Run();
+
+// Custom Telemetry Initializer
+public class CustomTelemetryInitializer : ITelemetryInitializer
+{
+    public void Initialize(ITelemetry telemetry)
+    {
+        telemetry.Context.Cloud.RoleName = "HotelManagement.API";
+        telemetry.Context.Component.Version = "1.0.0";
+
+        // Add custom properties
+        if (telemetry is ISupportProperties supportProperties)
+        {
+            supportProperties.Properties["Environment"] = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Unknown";
+            supportProperties.Properties["MachineName"] = Environment.MachineName;
+        }
+    }
+}
+
+// Custom Telemetry Processor
+public class CustomTelemetryProcessor : ITelemetryProcessor
+{
+    private ITelemetryProcessor Next { get; set; }
+
+    public CustomTelemetryProcessor(ITelemetryProcessor next)
+    {
+        Next = next;
+    }
+
+    public void Process(ITelemetry item)
+    {
+        // Filter out health check requests
+        if (item is RequestTelemetry request &&
+            request.Url?.AbsolutePath?.Contains("/health") == true)
+        {
+            return; // Don't process health check requests
+        }
+
+        // Add custom logic here
+        if (item is DependencyTelemetry dependency)
+        {
+            // Mask sensitive data in SQL commands
+            if (dependency.Type == "SQL" && !string.IsNullOrEmpty(dependency.Data))
+            {
+                dependency.Data = MaskSensitiveData(dependency.Data);
+            }
+        }
+
+        Next.Process(item);
+    }
+
+    private string MaskSensitiveData(string data)
+    {
+        // Implement your masking logic here
+        return data.Replace("password", "***");
+    }
+}
 ```
 
-**Custom Telemetry Tracking**:
+## Advanced Telemetry Collection
+
+### Custom Telemetry Tracking Service
 
 ```csharp
-using Microsoft.ApplicationInsights;
-using Microsoft.ApplicationInsights.DataContracts;
+// Services/TelemetryService.cs
+public class TelemetryService
+{
+    private readonly TelemetryClient _telemetryClient;
+    private readonly ILogger<TelemetryService> _logger;
 
+    public TelemetryService(TelemetryClient telemetryClient, ILogger<TelemetryService> logger)
+    {
+        _telemetryClient = telemetryClient;
+        _logger = logger;
+    }
+
+    public void TrackCustomEvent(string eventName, Dictionary<string, string> properties = null, Dictionary<string, double> metrics = null)
+    {
+        _telemetryClient.TrackEvent(eventName, properties, metrics);
+    }
+
+    public void TrackBusinessMetric(string metricName, double value, Dictionary<string, string> properties = null)
+    {
+        _telemetryClient.TrackMetric(metricName, value, properties);
+    }
+
+    public void TrackUserAction(string actionName, string userId, Dictionary<string, string> additionalProperties = null)
+    {
+        var properties = new Dictionary<string, string>
+        {
+            ["UserId"] = userId,
+            ["Action"] = actionName,
+            ["Timestamp"] = DateTime.UtcNow.ToString("O")
+        };
+
+        if (additionalProperties != null)
+        {
+            foreach (var prop in additionalProperties)
+            {
+                properties[prop.Key] = prop.Value;
+            }
+        }
+
+        _telemetryClient.TrackEvent("UserAction", properties);
+    }
+
+    public IDisposable StartOperation(string operationName)
+    {
+        return _telemetryClient.StartOperation<RequestTelemetry>(operationName);
+    }
+
+    public void TrackDependency(string dependencyType, string target, string dependencyName,
+        DateTime startTime, TimeSpan duration, bool success)
+    {
+        _telemetryClient.TrackDependency(dependencyType, target, dependencyName,
+            startTime, duration, success);
+    }
+}
+```
+
+### Example 1: Controller Integration
+
+```csharp
+[ApiController]
+[Route("api/[controller]")]
+public class BookingController : ControllerBase
+{
+    private readonly IBookingService _bookingService;
+    private readonly TelemetryService _telemetryService;
+
+    public BookingController(IBookingService bookingService, TelemetryService telemetryService)
+    {
+        _bookingService = bookingService;
+        _telemetryService = telemetryService;
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> CreateBooking([FromBody] CreateBookingRequest request)
+    {
+        using var operation = _telemetryService.StartOperation("CreateBooking");
+
+        try
+        {
+            var booking = await _bookingService.CreateAsync(request);
+
+            // Track business metrics
+            _telemetryService.TrackBusinessMetric("BookingsCreated", 1, new Dictionary<string, string>
+            {
+                ["RoomType"] = request.RoomType,
+                ["Duration"] = (request.CheckOut - request.CheckIn).TotalDays.ToString()
+            });
+
+            // Track user action
+            _telemetryService.TrackUserAction("CreateBooking", request.CustomerId, new Dictionary<string, string>
+            {
+                ["BookingId"] = booking.Id.ToString(),
+                ["RoomType"] = request.RoomType
+            });
+
+            return Ok(booking);
+        }
+        catch (Exception ex)
+        {
+            _telemetryService.TrackCustomEvent("BookingCreationFailed", new Dictionary<string, string>
+            {
+                ["Error"] = ex.Message,
+                ["CustomerId"] = request.CustomerId
+            });
+
+            throw;
+        }
+    }
+}
+```
+
+### Example 2: Orders Controller
+
+```csharp
 [ApiController]
 [Route("api/[controller]")]
 public class OrdersController : ControllerBase
@@ -166,15 +421,15 @@ public class OrdersController : ControllerBase
 }
 ```
 
-**Custom Telemetry Middleware**:
+## Custom Telemetry Middleware
 
 ```csharp
-public class RequestTelemetryMiddleware
+public class ApplicationInsightsMiddleware
 {
     private readonly RequestDelegate _next;
     private readonly TelemetryClient _telemetryClient;
 
-    public RequestTelemetryMiddleware(RequestDelegate next, TelemetryClient telemetryClient)
+    public ApplicationInsightsMiddleware(RequestDelegate next, TelemetryClient telemetryClient)
     {
         _next = next;
         _telemetryClient = telemetryClient;
@@ -182,6 +437,7 @@ public class RequestTelemetryMiddleware
 
     public async Task InvokeAsync(HttpContext context)
     {
+        var startTime = DateTime.UtcNow;
         var stopwatch = Stopwatch.StartNew();
 
         try
@@ -192,24 +448,28 @@ public class RequestTelemetryMiddleware
         {
             stopwatch.Stop();
 
-            // Track custom metrics about the request
-            _telemetryClient.TrackMetric("RequestDuration", stopwatch.ElapsedMilliseconds);
-
-            if (context.Response.StatusCode >= 400)
+            // Track custom request telemetry
+            var telemetry = new RequestTelemetry
             {
-                _telemetryClient.TrackEvent("ErrorResponse", new Dictionary<string, string>
-                {
-                    ["StatusCode"] = context.Response.StatusCode.ToString(),
-                    ["Path"] = context.Request.Path,
-                    ["Method"] = context.Request.Method
-                });
-            }
+                Name = $"{context.Request.Method} {context.Request.Path}",
+                Url = new Uri($"{context.Request.Scheme}://{context.Request.Host}{context.Request.Path}{context.Request.QueryString}"),
+                Timestamp = startTime,
+                Duration = stopwatch.Elapsed,
+                ResponseCode = context.Response.StatusCode.ToString(),
+                Success = context.Response.StatusCode < 400
+            };
+
+            // Add custom properties
+            telemetry.Properties["UserAgent"] = context.Request.Headers["User-Agent"].ToString();
+            telemetry.Properties["ClientIP"] = context.Connection.RemoteIpAddress?.ToString();
+
+            _telemetryClient.TrackRequest(telemetry);
         }
     }
 }
 ```
 
-**Structured Logging Integration**:
+## Structured Logging Integration
 
 ```csharp
 public class ProductService
@@ -253,7 +513,7 @@ public class ProductService
 }
 ```
 
-**Health Checks Integration**:
+## Health Checks Integration
 
 ```csharp
 // Program.cs
@@ -290,7 +550,7 @@ public class DatabaseHealthCheck : IHealthCheck
 }
 ```
 
-### Use Cases
+## Use Cases
 
 - Application performance monitoring and optimization
 - Error tracking and exception analysis
@@ -298,50 +558,66 @@ public class DatabaseHealthCheck : IHealthCheck
 - Infrastructure monitoring and dependency tracking
 - Real-time alerting on performance issues
 - A/B testing and feature flag monitoring
+- Business intelligence and custom metrics
 
-### When to Use vs Alternatives
+## When to Use vs When Not to Use
 
-**Use Application Insights when**:
+### Use Application Insights when
 
 - Azure-hosted applications requiring deep integration
 - Comprehensive APM solution needed
 - Integration with Azure Monitor ecosystem important
 - Built-in analytics and alerting capabilities desired
 - Automatic instrumentation for common frameworks preferred
+- Building production applications requiring monitoring
+- Need automated alerting and diagnostics
+- Building business-critical applications
 
-**Don't use when**:
+### Don't use when
 
 - Multi-cloud monitoring strategy required
 - Cost optimization for simple monitoring needs
 - Existing monitoring infrastructure in place
 - Real-time streaming analytics primary requirement
+- Working primarily with non-Azure infrastructure
+- Need open-source monitoring solutions
+- Budget constraints for high-volume applications
+- Simple applications with minimal monitoring needs
+- Strict data residency requirements outside Azure regions
 
-**Alternatives**:
+## Market Alternatives & Pros/Cons
+
+### Alternatives
 
 - **Azure**: Azure Monitor Logs, Azure Monitor Metrics
 - **AWS**: CloudWatch, X-Ray
 - **GCP**: Cloud Monitoring, Cloud Trace
-- **Open Source**: Prometheus + Grafana, Jaeger, Zipkin
+- **Open Source**: Prometheus + Grafana, Jaeger, Zipkin, Elastic APM
 - **Commercial**: New Relic, Datadog, Dynatrace
 
-### Market Pros/Cons and Cost Considerations
+### Pros
 
-**Pros**:
-
+- Deep integration with Azure services
 - Automatic instrumentation for ASP.NET Core applications
 - Rich analytics and query capabilities (KQL)
 - Integration with Azure DevOps and GitHub
 - Smart detection of performance anomalies
 - Comprehensive dependency mapping
+- Built-in alerting and dashboards
+- Live metrics streaming
+- Excellent .NET Core integration
 
-**Cons**:
+### Cons
 
 - Can be expensive for high-volume applications
-- Learning curve for advanced analytics queries
+- Data stored in Azure (potential compliance issues)
+- Learning curve for advanced analytics queries (KQL)
 - Data retention limits on different tiers
 - Vendor lock-in to Azure ecosystem
+- Limited customization compared to open-source alternatives
+- Sampling can miss important low-frequency events
 
-**Cost Considerations**:
+### Cost Considerations
 
 - Pay-per-GB of data ingested (~$2.30/GB for first 5GB/month)
 - First 5GB per month included with many Azure services
@@ -349,54 +625,38 @@ public class DatabaseHealthCheck : IHealthCheck
 - Additional costs for multi-step web tests and alerts
 - Enterprise features require higher-tier pricing
 
-### Minimal Sample: Deploy ASP.NET Core App to App Service with Application Insights
+## Kusto Queries for Analysis
 
-**Complete Deployment Script**:
+```kusto
+// Performance analysis
+requests
+| where timestamp > ago(1h)
+| summarize avg(duration), count() by name
+| order by avg_duration desc
 
-```bash
-# Variables
-RESOURCE_GROUP="hotel-demo-rg"
-APP_NAME="hotel-api-$(date +%s)"
-LOCATION="eastus"
-APP_SERVICE_PLAN="hotel-plan"
+// Error analysis
+exceptions
+| where timestamp > ago(24h)
+| summarize count() by type, outerMessage
+| order by count_ desc
 
-# Create resource group
-az group create --name $RESOURCE_GROUP --location $LOCATION
+// Custom business metrics
+customMetrics
+| where name == "BookingValue"
+| where timestamp > ago(7d)
+| summarize sum(value), avg(value) by bin(timestamp, 1h)
+| render timechart
 
-# Create App Service plan
-az appservice plan create --name $APP_SERVICE_PLAN --resource-group $RESOURCE_GROUP --sku B1
+// User behavior analysis
+customEvents
+| where name == "UserAction"
+| where timestamp > ago(1d)
+| summarize count() by tostring(customDimensions["Action"])
+| order by count_ desc
 
-# Create Application Insights
-az monitor app-insights component create \
-    --app $APP_NAME-insights \
-    --location $LOCATION \
-    --resource-group $RESOURCE_GROUP \
-    --application-type web
-
-# Get Application Insights connection string
-INSIGHTS_CONNECTION=$(az monitor app-insights component show \
-    --app $APP_NAME-insights \
-    --resource-group $RESOURCE_GROUP \
-    --query connectionString -o tsv)
-
-# Create web app
-az webapp create \
-    --resource-group $RESOURCE_GROUP \
-    --plan $APP_SERVICE_PLAN \
-    --name $APP_NAME \
-    --runtime "DOTNET|8.0"
-
-# Configure Application Insights
-az webapp config appsettings set \
-    --resource-group $RESOURCE_GROUP \
-    --name $APP_NAME \
-    --settings "APPLICATIONINSIGHTS_CONNECTION_STRING=$INSIGHTS_CONNECTION"
-
-# Deploy app (assuming you have a zip package)
-# az webapp deployment source config-zip --resource-group $RESOURCE_GROUP --name $APP_NAME --src app.zip
-
-echo "App deployed to: https://$APP_NAME.azurewebsites.net"
-echo "Application Insights: https://portal.azure.com/#@/resource/subscriptions/.../resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Insights/components/$APP_NAME-insights"
+// Dependency performance
+dependencies
+| where timestamp > ago(1h)
+| summarize avg(duration), count(), successRate=avg(toint(success)) by name, type
+| order by avg_duration desc
 ```
-
-This completes the Cloud Technologies section covering all Azure services with comprehensive setup instructions, code examples, and practical guidance for .NET Core applications. Each service includes real-world usage patterns and cost considerations to help make informed architectural decisions.

@@ -1,14 +1,20 @@
-### Razor Pages
+---
+slug: razor_pages
+title: Razor Pages
+tags: [dotnet, core, razor, pages, architecture, web]
+---
 
-#### Short Introduction
+# Razor Pages
+
+## Short Introduction
 
 Razor Pages is a page-focused framework that makes coding page-focused scenarios easier and more productive than using controllers and views.
 
-#### Official Definition
+## Official Definition
 
 Razor Pages is a page-based programming model that makes building web UI easier and more productive. It's built on top of ASP.NET Core MVC but provides a simpler, more focused approach to page-based scenarios.
 
-#### Usage
+## Usage
 
 ```csharp
 // Pages/Products/Index.cshtml.cs
@@ -60,7 +66,7 @@ public class CreateModel : PageModel
 }
 ```
 
-#### Razor Page View
+## Razor Page View
 
 ```html
 @page @model IndexModel @{ ViewData["Title"] = "Products"; }
@@ -97,7 +103,7 @@ public class CreateModel : PageModel
 </table>
 ```
 
-#### Use Cases
+## Use Cases
 
 - Simple web applications
 - Admin panels
@@ -105,20 +111,18 @@ public class CreateModel : PageModel
 - Form-heavy applications
 - Rapid prototyping
 
-#### When to Use / When Not to Use
+## When to Use / When Not to Use
 
-**Use Razor Pages when:**
+### Use Razor Pages when:
 
 - Building page-focused applications
 - Simple CRUD operations
 - Prototyping
 - Team prefers page-based model
 
-**Use MVC when:**
+### Use MVC when:
 
 - Complex routing requirements
 - Heavy use of filters
 - Complex view logic
 - RESTful APIs
-
----

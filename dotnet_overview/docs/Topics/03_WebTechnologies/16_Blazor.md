@@ -1,19 +1,25 @@
-### Blazor
+---
+slug: blazor_pages
+title: Blazor
+tags: [dotnet, core, blazor, pages, architecture, web]
+---
 
-#### Short Introduction
+# Blazor
+
+## Short Introduction
 
 Blazor is a framework for building interactive web UIs using C# instead of JavaScript, supporting both server-side and client-side execution models.
 
-#### Official Definition
+## Official Definition
 
 Blazor is a free and open-source web framework that enables developers to create web apps using C# and HTML being developed by Microsoft.
 
-#### Blazor Server vs Blazor WebAssembly
+## Blazor Server vs Blazor WebAssembly
 
 - **Blazor Server**: Runs on the server, UI updates sent via SignalR
 - **Blazor WebAssembly**: Runs in the browser using WebAssembly
 
-#### Usage
+## Usage
 
 ```csharp
 // Components/ProductCard.razor
@@ -75,7 +81,7 @@ else
 }
 ```
 
-#### Interactive Components
+## Interactive Components
 
 ```csharp
 // Components/Counter.razor
@@ -100,7 +106,7 @@ else
 <Counter IncrementBy="5" />
 ```
 
-#### Use Cases
+## Use Cases
 
 - Interactive web applications
 - Real-time dashboards
@@ -108,9 +114,9 @@ else
 - Internal business applications
 - Rapid application development
 
-#### When to Use / When Not to Use
+## When to Use / When Not to Use
 
-**Use Blazor when:**
+### Use Blazor when:
 
 - Team expertise in C#
 - Building interactive UIs
@@ -118,32 +124,30 @@ else
 - Real-time applications
 - .NET ecosystem integration
 
-**Consider alternatives when:**
+### Consider alternatives when:
 
 - Need maximum performance
 - Large existing JavaScript codebase
 - Third-party JavaScript library requirements
 - Public-facing websites (SEO concerns with WebAssembly)
 
-#### Market Alternatives
+## Market Alternatives
 
 - React
 - Angular
 - Vue.js
 - Svelte
 
-**Pros:**
+## Pros:
 
 - Single language (C#)
 - Strong typing
 - .NET ecosystem integration
 - Shared code between client/server
 
-**Cons:**
+## Cons:
 
 - Limited browser support (WebAssembly)
 - Larger payload size
 - Less mature ecosystem
 - SEO challenges with client-side rendering
-
----

@@ -1,14 +1,14 @@
 ## 44. Microservices Architecture
 
-### Short Introduction
+## Short Introduction
 
 Microservices architecture is a design approach that structures an application as a collection of loosely coupled, independently deployable services. Each service is responsible for a specific business capability and communicates with other services through well-defined APIs, enabling teams to develop, deploy, and scale services independently.
 
-### Official Definition
+## Official Definition
 
 Microservices architecture is an approach to developing a single application as a suite of small services, each running in its own process and communicating with lightweight mechanisms, often an HTTP resource API. These services are built around business capabilities and independently deployable by fully automated deployment machinery.
 
-### Setup/Usage with .NET 8+ Code
+## Setup/Usage with .NET 8+ Code
 
 **Basic Microservice Structure:**
 
@@ -242,7 +242,7 @@ public class RoomDetailsResponse
 - **Fault Isolation**: Preventing failures in one service from affecting others
 - **Continuous Deployment**: Independent release cycles for different services
 
-### When to Use vs When Not to Use
+## When to Use vs When Not to Use
 
 **Use Microservices when:**
 
@@ -264,7 +264,7 @@ public class RoomDetailsResponse
 
 ### Market Alternatives & Pros/Cons
 
-**Alternatives:**
+### Alternatives:
 
 - **Monolithic Architecture**: Single deployable unit
 - **Modular Monolith**: Modular structure within single deployment
@@ -272,7 +272,7 @@ public class RoomDetailsResponse
 - **Serverless Functions**: Function-as-a-Service approach
 - **Event-Driven Architecture**: Async communication patterns
 
-**Pros:**
+### Pros:
 
 - Independent development and deployment
 - Technology diversity and flexibility
@@ -281,7 +281,7 @@ public class RoomDetailsResponse
 - Team autonomy and ownership
 - Better alignment with business domains
 
-**Cons:**
+### Cons:
 
 - Increased operational complexity
 - Network latency and communication overhead

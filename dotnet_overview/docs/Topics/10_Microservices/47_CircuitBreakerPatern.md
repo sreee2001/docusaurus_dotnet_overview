@@ -1,14 +1,14 @@
 ## 47. Circuit Breaker Pattern (Polly)
 
-### Short Introduction
+## Short Introduction
 
 The Circuit Breaker pattern prevents an application from repeatedly trying to execute an operation that's likely to fail, allowing it to continue without waiting for the fault to be fixed or wasting CPU cycles. Polly is a .NET resilience and transient-fault-handling library that implements circuit breaker along with retry, timeout, bulkhead isolation, and fallback patterns.
 
-### Official Definition
+## Official Definition
 
 The Circuit Breaker pattern is a design pattern used in software development to detect failures and encapsulates the logic of preventing a failure from constantly recurring during maintenance, temporary external system failure, or unexpected system difficulties.
 
-### Setup/Usage with .NET 8+ Code
+## Setup/Usage with .NET 8+ Code
 
 **Install Polly:**
 
@@ -391,7 +391,7 @@ public class CircuitBreakerHealthCheck : IHealthCheck
 - **Performance Degradation**: Handle slow or unresponsive services
 - **Network Instability**: Cope with intermittent connectivity issues
 
-### When to Use vs When Not to Use
+## When to Use vs When Not to Use
 
 **Use Circuit Breaker when:**
 
@@ -412,7 +412,7 @@ public class CircuitBreakerHealthCheck : IHealthCheck
 
 ### Market Alternatives & Pros/Cons
 
-**Alternatives:**
+### Alternatives:
 
 - **Hystrix**: Netflix's circuit breaker library (Java)
 - **Resilience4j**: Lightweight fault tolerance library (Java)
@@ -421,7 +421,7 @@ public class CircuitBreakerHealthCheck : IHealthCheck
 - **Spring Cloud Circuit Breaker**: Spring framework integration
 - **Custom implementations**: Hand-rolled circuit breaker logic
 
-**Pros:**
+### Pros:
 
 - Prevents cascade failures
 - Automatic failure detection and recovery
@@ -430,7 +430,7 @@ public class CircuitBreakerHealthCheck : IHealthCheck
 - Excellent .NET integration
 - Production-proven reliability
 
-**Cons:**
+### Cons:
 
 - Additional complexity
 - Potential false positives

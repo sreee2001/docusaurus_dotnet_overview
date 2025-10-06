@@ -1,14 +1,31 @@
-### SignalR
+---
+slug: signalr
+title: SignalR
+tags:
+  [
+    dotnet,
+    core,
+    signalr,
+    communication,
+    bi-directional,
+    client,
+    server,
+    transport,
+    real-time,
+  ]
+---
 
-#### Short Introduction
+# SignalR
+
+## Short Introduction
 
 SignalR is a real-time communication library that enables bi-directional communication between client and server, automatically choosing the best transport method.
 
-#### Official Definition
+## Official Definition
 
 ASP.NET Core SignalR is an open-source library that simplifies adding real-time web functionality to apps, enabling server-side code to push content to clients instantly.
 
-#### Usage
+## Usage
 
 ```csharp
 // Hub
@@ -49,7 +66,7 @@ builder.Services.AddSignalR();
 app.MapHub<ChatHub>("/chathub");
 ```
 
-#### Client-side (JavaScript)
+## Client-side (JavaScript)
 
 ```javascript
 // wwwroot/js/chat.js
@@ -87,7 +104,7 @@ document
   });
 ```
 
-#### Blazor SignalR Client
+## Blazor SignalR Client
 
 ```csharp
 @page "/chat"
@@ -162,7 +179,7 @@ document
 }
 ```
 
-#### Use Cases
+## Use Cases
 
 - Real-time chat applications
 - Live dashboards
@@ -172,27 +189,25 @@ document
 - Stock price updates
 - Social media feeds
 
-#### When to Use / When Not to Use
+## When to Use / When Not to Use
 
-**Use SignalR when:**
+### Use SignalR when:
 
 - Need real-time communication
 - Bi-directional data flow required
 - Building collaborative applications
 - Live updates are essential
 
-**Consider alternatives when:**
+### Consider alternatives when:
 
 - Simple request/response patterns
 - Batch data processing
 - One-way communication sufficient
 - High scalability requirements
 
-#### Market Alternatives
+## Market Alternatives
 
 - Socket.IO (Node.js)
 - WebSockets (native)
 - Server-Sent Events (SSE)
 - gRPC streaming
-
----

@@ -1,14 +1,14 @@
 ## 46. Service Discovery
 
-### Short Introduction
+## Short Introduction
 
 Service Discovery is a mechanism that allows services in a distributed system to automatically locate and communicate with each other without hard-coded network locations. It provides dynamic registration and discovery of service instances, enabling resilient communication in microservices architectures where services can scale up/down and move between hosts.
 
-### Official Definition
+## Official Definition
 
 Service Discovery is a key component of most distributed systems and service-oriented architectures. The service instances have dynamically assigned network locations. Moreover, the set of service instances changes dynamically because of autoscaling, failures, and upgrades.
 
-### Setup/Usage with .NET 8+ Code
+## Setup/Usage with .NET 8+ Code
 
 **Consul Service Discovery Implementation:**
 
@@ -307,7 +307,7 @@ public class ServiceDiscoveryHttpClientFactory : IServiceDiscoveryHttpClientFact
 - **Blue-Green Deployments**: Route traffic between different service versions
 - **Multi-Environment Support**: Different service configurations per environment
 
-### When to Use vs When Not to Use
+## When to Use vs When Not to Use
 
 **Use Service Discovery when:**
 
@@ -328,7 +328,7 @@ public class ServiceDiscoveryHttpClientFactory : IServiceDiscoveryHttpClientFact
 
 ### Market Alternatives & Pros/Cons
 
-**Alternatives:**
+### Alternatives:
 
 - **Kubernetes DNS**: Built-in service discovery for Kubernetes
 - **Netflix Eureka**: Service registry for resilient mid-tier load balancing
@@ -337,7 +337,7 @@ public class ServiceDiscoveryHttpClientFactory : IServiceDiscoveryHttpClientFact
 - **AWS Cloud Map**: Managed service discovery for AWS
 - **Azure Service Fabric**: Microsoft's service discovery solution
 
-**Pros:**
+### Pros:
 
 - Dynamic service location
 - Automatic health checking
@@ -346,7 +346,7 @@ public class ServiceDiscoveryHttpClientFactory : IServiceDiscoveryHttpClientFact
 - Rich querying and filtering
 - Battle-tested in production
 
-**Cons:**
+### Cons:
 
 - Additional infrastructure dependency
 - Potential single point of failure
