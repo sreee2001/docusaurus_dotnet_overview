@@ -1,47 +1,27 @@
 ---
+slug: intro
+title: Welcome to .NET & Azure Overview
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# Welcome to .NET & Azure Overview
 
-Let's discover **Docusaurus in less than 5 minutes**.
+Hello! I’m Srikanth Tangella.
 
-## Getting Started
+This site is designed to give you a crash course in .NET and Azure, covering the essential topics, concepts, and practical skills you need to get started or deepen your understanding. Whether you’re a beginner or an experienced developer, you’ll find concise explanations, code samples, and best practices for building modern applications with .NET and Azure.
 
-Get started by **creating a new site**.
+## What You’ll Find Here
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+- **Topics:** Structured guides and reference material on .NET fundamentals, cloud technologies, DevOps, security, and more.
+- **Blog:** Occasional posts sharing my experiences, tips, and insights from real-world projects.
+- **About Me:** Learn more about my background, interests, and how to connect.
 
-### What you'll need
+## How to Use This Site
 
-- [Node.js](https://nodejs.org/en/download/) version 20.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+- Start with the [Topics](./Topics/01_Fundamentals/01_ComparingOptionsForDotnet.md) section for a guided learning path.
+- Browse the blog for practical advice and updates.
+- Reach out via [GitHub](https://github.com/sreee2001) if you have questions or feedback.
 
-## Generate a new site
+---
 
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
-
-```bash
-npm init docusaurus@latest my-website classic
-```
-
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+Thank you for visiting, and happy coding!

@@ -1,8 +1,8 @@
 ---
 slug: long-blog-post
 title: Long Blog Post
-authors: yangshun
-tags: [hello, docusaurus]
+authors: [sreee2001]
+tags: [dotnet, azure, personal]
 ---
 
 This is the summary of a very long blog post,

@@ -1,8 +1,8 @@
 ---
 slug: first-blog-post
 title: First Blog Post
-authors: [slorber, yangshun]
-tags: [hola, docusaurus]
+authors: [sreee2001]
+tags: [dotnet, azure, personal]
 ---
 
 Lorem ipsum dolor sit amet...

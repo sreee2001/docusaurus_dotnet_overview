@@ -1,19 +1,24 @@
-facebook:
-  label: Facebook
-  permalink: /facebook
-  description: Facebook tag description
+dotnet:
+  label: .NET
+  permalink: /dotnet
+  description: Posts about .NET development and best practices
 
-hello:
-  label: Hello
-  permalink: /hello
-  description: Hello tag description
+azure:
+  label: Azure
+  permalink: /azure
+  description: Cloud, DevOps, and Azure services
 
-docusaurus:
-  label: Docusaurus
-  permalink: /docusaurus
-  description: Docusaurus tag description
+devops:
+  label: DevOps
+  permalink: /devops
+  description: CI/CD, automation, and deployment strategies
 
-hola:
-  label: Hola
-  permalink: /hola
-  description: Hola tag description
+tutorial:
+  label: Tutorial
+  permalink: /tutorial
+  description: Step-by-step guides and crash courses
+
+personal:
+  label: Personal
+  permalink: /personal
+  description: My experiences, career, and insights
