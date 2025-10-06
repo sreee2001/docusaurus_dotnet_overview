@@ -1,24 +1,74 @@
-dotnet:
-  label: .NET
-  permalink: /dotnet
-  description: Posts about .NET development and best practices
+architecture:
+  label: Architecture
+  permalink: /architecture
+  description: Application, web, and cloud architecture patterns for .NET and Azure
 
 azure:
   label: Azure
   permalink: /azure
   description: Cloud, DevOps, and Azure services
 
+background:
+  label: Background Services
+  permalink: /background
+  description: Hosted services, scheduled jobs, and background tasks in .NET
+
+blazor:
+  label: Blazor
+  permalink: /blazor
+  description: Blazor pages, components, and web development in .NET
+
+core:
+  label: .NET Core
+  permalink: /core
+  description: .NET Core development, architecture, and best practices
+
+database:
+  label: Database
+  permalink: /database
+  description: SQL, data access, and persistence strategies in .NET and Azure
+
 devops:
   label: DevOps
   permalink: /devops
   description: CI/CD, automation, and deployment strategies
 
-tutorial:
-  label: Tutorial
-  permalink: /tutorial
-  description: Step-by-step guides and crash courses
+dotnet:
+  label: .NET
+  permalink: /dotnet
+  description: Posts about .NET development and best practices
+
+entity_framework:
+  label: Entity Framework
+  permalink: /entity-framework
+  description: Data access and ORM with Entity Framework in .NET
+
+performance:
+  label: Performance
+  permalink: /performance
+  description: Performance optimization, memory management, and scalability topics
 
 personal:
   label: Personal
   permalink: /personal
   description: My experiences, career, and insights
+
+security:
+  label: Security
+  permalink: /security
+  description: Key Vault, secrets management, certificates, and secure storage in Azure
+
+service_bus:
+  label: Service Bus
+  permalink: /service-bus
+  description: Messaging, broker, and service bus integration in Azure
+
+testing:
+  label: Testing
+  permalink: /testing
+  description: Unit, integration, load, and end-to-end testing strategies for .NET and Azure
+
+tutorial:
+  label: Tutorial
+  permalink: /tutorial
+  description: Step-by-step guides and crash courses
