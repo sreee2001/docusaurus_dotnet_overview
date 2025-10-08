@@ -1,4 +1,4 @@
-## 43. Health Checks
+## Health Checks
 
 ## Short Introduction
 
@@ -305,7 +305,7 @@ public class MemoryHealthCheck : IHealthCheck
 }
 ```
 
-### Use Cases
+## Use Cases
 
 - **Load Balancer Integration**: Determine which instances should receive traffic
 - **Container Orchestration**: Kubernetes liveness and readiness probes
@@ -360,7 +360,7 @@ public class MemoryHealthCheck : IHealthCheck
 - Requires monitoring system integration for full value
 - Potential security considerations for exposed endpoints
 
-### Complete Runnable Sample
+## Complete Runnable Sample
 
 **Production-Ready Health Checks Implementation:**
 
