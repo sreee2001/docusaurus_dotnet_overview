@@ -1,4 +1,15 @@
-Got it. I’ll deliver the next idea in the same structure as Idea 1, then list the next 5 candidates so you can choose what follows.
+---
+title: "Teams Incident Commander Bot"
+description: "Teams-native bot for incident management: declares incidents, assembles channels, runs checklists, and captures timelines. Integrates with ServiceNow/Jira and supports audit-ready evidence."
+tags:
+  - Teams
+  - IncidentManagement
+  - DevOps
+  - SRE
+  - Automation
+  - Bot
+  - Audit
+---
 
 ## Idea 2 — Teams Incident Commander Bot
 

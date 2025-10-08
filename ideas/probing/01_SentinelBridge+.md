@@ -1,4 +1,15 @@
-Thanks — I’ll start with Idea 1 and walk you through it end‑to‑end: plain explanation, market/competition, a sales-style pitch, step-by-step checklists, risks, and a small glossary. I’ll then propose the next 5 ideas to tackle and wait for your confirmation before continuing.
+---
+title: "Outlook-to-ServiceNow triage agent (SentinelBridge+)"
+description: "Automate IT helpdesk email triage, ticket creation, and Teams notifications using Microsoft 365 and ServiceNow. Reduces manual work, improves response times, and provides metrics for leaders."
+tags:
+  - IT
+  - ServiceNow
+  - Microsoft365
+  - Teams
+  - Automation
+  - Triage
+  - AI
+---
 
 ## Idea 1 — Outlook-to-ServiceNow triage agent (SentinelBridge+)
 
