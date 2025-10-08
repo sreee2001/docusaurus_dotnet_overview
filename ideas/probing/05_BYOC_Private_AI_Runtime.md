@@ -1,3 +1,16 @@
+---
+title: "BYOC Private AI Runtime (agent platform in customer cloud)"
+description: "Deploy private AI agent runtime in customer cloud (AKS/EKS) with SSO, audit, VPC-peered access, and spend caps. Terraform templates and control plane for secure, compliant AI workloads."
+tags:
+  - BYOC
+  - AI
+  - PrivateCloud
+  - AKS
+  - EKS
+  - Security
+  - Compliance
+---
+
 Acknowledged—continuing with the next idea in the same format; I’ll fully chart Idea 5 and then pause for your confirmation before moving on.
 
 ## Idea 5 — BYOC Private AI Runtime (agent platform in customer cloud)

@@ -1,3 +1,16 @@
+---
+title: "SOC2 Evidence Collector Agent (M365/Azure/GitHub → auditor-ready)"
+description: "Automate SOC2/ISO evidence collection from M365, Azure, GitHub, and ticketing systems. Packages auditor-ready bundles with timestamps and audit trails."
+tags:
+  - SOC2
+  - Evidence
+  - Audit
+  - M365
+  - Azure
+  - GitHub
+  - Compliance
+---
+
 ## Idea 11 — SOC2 Evidence Collector Agent (M365/Azure/GitHub → auditor-ready)
 
 Exact text (as presented earlier)

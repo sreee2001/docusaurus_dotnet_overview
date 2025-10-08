@@ -1,3 +1,15 @@
+---
+title: "Legal Request Triage (Matter Intake)"
+description: "Classifies legal requests, routes to counsel, creates tickets, and tracks SLAs for in-house legal teams."
+tags:
+  - Legal
+  - Triage
+  - SLA
+  - MatterIntake
+  - Teams
+  - Automation
+---
+
 ## Idea 15 — Legal Request Triage (Matter Intake)
 
 Exact text (as presented earlier)

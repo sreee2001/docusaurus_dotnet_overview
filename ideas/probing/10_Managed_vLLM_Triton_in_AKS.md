@@ -1,3 +1,16 @@
+---
+title: "Managed vLLM/Triton in AKS (BYOC model serving productized)"
+description: "Helm-deployable, autoscaling, metrics-enabled model serving for AKS. Supports vLLM/Triton, cost guardrails, and approved model lists in customer tenant."
+tags:
+  - AKS
+  - vLLM
+  - Triton
+  - ModelServing
+  - Helm
+  - Autoscaling
+  - Metrics
+---
+
 ## Idea 10 — Managed vLLM/Triton in AKS (BYOC model serving productized)
 
 Exact text (as presented earlier)

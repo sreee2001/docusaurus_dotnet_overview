@@ -1,3 +1,16 @@
+---
+title: "Agent Cost & Latency Optimizer (A/B routing, caching, budget caps)"
+description: "Optimize LLM/agent workloads with A/B routing, semantic caching, budget caps, and latency SLOs. Enterprise guardrails and dashboards for cost and speed."
+tags:
+  - AI
+  - CostOptimization
+  - Latency
+  - Routing
+  - Caching
+  - Budgets
+  - SLO
+---
+
 ## Idea 7 — Agent Cost & Latency Optimizer (A/B routing, caching, budget caps)
 
 Exact text (as presented earlier)

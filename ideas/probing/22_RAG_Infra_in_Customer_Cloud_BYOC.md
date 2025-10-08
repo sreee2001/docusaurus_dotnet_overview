@@ -1,3 +1,16 @@
+---
+title: "RAG Infra in Customer Cloud (BYOC)"
+description: "Deploy vector DB, retrievers, and ingestion pipelines in AKS/EKS with IaC, monitoring, and SSO for privacy-focused teams."
+tags:
+  - RAG
+  - BYOC
+  - AKS
+  - EKS
+  - VectorDB
+  - IaC
+  - Privacy
+---
+
 ## Idea 22 — RAG Infra in Customer Cloud (BYOC)
 
 Exact text (as presented earlier)

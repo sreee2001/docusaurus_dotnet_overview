@@ -1,3 +1,16 @@
+---
+title: "Internal Search Copilot for M365 (permissions-aware hybrid search)"
+description: "Permissions-aware hybrid search across SharePoint, OneDrive, Teams, and Confluence. Teams bot and web UI for fast, secure answers with citations."
+tags:
+  - M365
+  - Search
+  - Permissions
+  - Teams
+  - SharePoint
+  - Confluence
+  - Hybrid
+---
+
 ## Idea 8 — Internal Search Copilot for M365 (permissions-aware hybrid search)
 
 Exact text (as presented earlier)

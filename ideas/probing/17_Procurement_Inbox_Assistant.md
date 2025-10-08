@@ -1,3 +1,15 @@
+---
+title: "Procurement Inbox Assistant"
+description: "Parses quotes, POs, invoices; validates terms; enriches vendor data; populates ERP or tracker; routes exceptions for procurement teams."
+tags:
+  - Procurement
+  - Finance
+  - ERP
+  - Automation
+  - Policy
+  - Teams
+---
+
 ## Idea 17 — Procurement Inbox Assistant
 
 Exact text (as presented earlier)

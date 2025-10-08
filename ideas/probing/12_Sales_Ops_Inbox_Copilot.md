@@ -1,3 +1,15 @@
+---
+title: "Sales Ops Inbox Copilot (Outlook + CRM)"
+description: "Automate inbound lead parsing, enrichment, CRM updates, and reply drafting for B2B sales teams using Outlook and Dynamics/Salesforce."
+tags:
+  - SalesOps
+  - CRM
+  - Outlook
+  - LeadEnrichment
+  - Automation
+  - SLA
+---
+
 ## Idea 12 — Sales Ops Inbox Copilot (Outlook + CRM)
 
 Exact text (as presented earlier)

@@ -1,3 +1,15 @@
+---
+title: "ETL to LLM Guarded Connectors"
+description: "Safe, policy-enforced data connectors with row/column-level security, masking, and audit for LLM/RAG pipelines."
+tags:
+  - ETL
+  - LLM
+  - GuardedConnectors
+  - Security
+  - Masking
+  - Audit
+---
+
 ## Idea 24 — ETL to LLM Guarded Connectors
 
 Exact text (as presented earlier)

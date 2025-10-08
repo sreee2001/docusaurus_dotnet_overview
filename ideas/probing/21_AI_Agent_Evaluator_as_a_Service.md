@@ -1,3 +1,15 @@
+---
+title: "AI Agent Evaluator‑as‑a‑Service"
+description: "Test harness to run LLM agents against scenarios, guardrails, and regression suites with scoring and diffs. CI-friendly for agent reliability."
+tags:
+  - AI
+  - Agent
+  - Evaluator
+  - Regression
+  - Guardrails
+  - CI
+---
+
 ## Idea 21 — AI Agent Evaluator‑as‑a‑Service
 
 Exact text (as presented earlier)

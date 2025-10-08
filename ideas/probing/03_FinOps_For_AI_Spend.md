@@ -1,3 +1,16 @@
+---
+title: "FinOps for AI Spend (budgets, anomalies, guardrails)"
+description: "Dashboards, anomaly alerts, and budget gates for AI APIs and GPU spend. Designed for cloud/finance teams to optimize costs, catch anomalies, and enforce budget guardrails."
+tags:
+  - FinOps
+  - AI
+  - Azure
+  - Budgets
+  - AnomalyDetection
+  - Cloud
+  - CostOptimization
+---
+
 Thanks—continuing with the next idea in the same structure; I’ll deliver the full breakdown for Idea 3, then pause for your confirmation to move on.
 
 ## Idea 3 — FinOps for AI Spend (budgets, anomalies, guardrails)

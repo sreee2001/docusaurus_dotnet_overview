@@ -1,3 +1,16 @@
+---
+title: "Generative KB + Auto-Reply for Helpdesk (RAG + safe replies)"
+description: "RAG-powered auto-reply system for helpdesks. Connects to KBs, drafts safe Outlook replies, and deflects repetitive tickets with confidence guardrails."
+tags:
+  - Helpdesk
+  - RAG
+  - AutoReply
+  - Outlook
+  - KB
+  - AI
+  - Deflection
+---
+
 Acknowledged—continuing with the next idea in the same structure as before; I’ll fully chart Idea 4 and then pause for your confirmation before moving on.
 
 ## Idea 4 — Generative KB + Auto-Reply for Helpdesk (RAG + safe replies)

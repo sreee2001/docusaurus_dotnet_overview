@@ -1,3 +1,15 @@
+---
+title: "Healthcare Intake Agent (Compliance-first)"
+description: "De-identifies PHI in emails/forms, routes to queues, creates tickets, and summarizes for staff. Designed for clinics and health vendors with compliance guardrails."
+tags:
+  - Healthcare
+  - Intake
+  - Compliance
+  - PHI
+  - DeIdentification
+  - Audit
+---
+
 ## Idea 14 — Healthcare Intake Agent (Compliance-first)
 
 Exact text (as presented earlier)

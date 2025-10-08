@@ -1,3 +1,15 @@
+---
+title: "Shadow IT / SaaS Discovery via Email & Logs"
+description: "Detects app signups, receipts, and OAuth grants from inboxes and logs; surfaces risks and owners; recommends remediation for IT governance."
+tags:
+  - ShadowIT
+  - SaaS
+  - Discovery
+  - Email
+  - Logs
+  - Security
+---
+
 ## Idea 27 — Shadow IT / SaaS Discovery via Email & Logs
 
 Exact text (as presented earlier)

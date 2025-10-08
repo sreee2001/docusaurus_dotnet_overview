@@ -1,3 +1,15 @@
+---
+title: "Manufacturing Quality Incident Agent"
+description: "Classifies defect/quality reports, creates tickets, notifies owners, and provides trend analysis for plant ops and quality teams."
+tags:
+  - Manufacturing
+  - Quality
+  - Incident
+  - Defect
+  - Analytics
+  - Automation
+---
+
 ## Idea 16 — Manufacturing Quality Incident Agent
 
 Exact text (as presented earlier)

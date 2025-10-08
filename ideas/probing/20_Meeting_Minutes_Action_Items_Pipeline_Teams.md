@@ -1,3 +1,16 @@
+---
+title: "Meeting Minutes + Action Items Pipeline (Teams)"
+description: "Captures meeting notes, summarizes decisions, extracts action items, syncs to Planner/Jira/DevOps, and provides Teams updates."
+tags:
+  - Meetings
+  - Minutes
+  - ActionItems
+  - Teams
+  - Planner
+  - Jira
+  - DevOps
+---
+
 ## Idea 20 — Meeting Minutes + Action Items Pipeline (Teams)
 
 Exact text (as presented earlier)

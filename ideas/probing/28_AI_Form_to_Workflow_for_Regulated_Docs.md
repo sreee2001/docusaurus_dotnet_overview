@@ -1,3 +1,15 @@
+---
+title: "AI Form‑to‑Workflow for Regulated Docs"
+description: "Parses forms (PDF/Word) into structured data with validations and routes to approvals in Teams/Power Automate for compliance-heavy organizations."
+tags:
+  - AI
+  - Forms
+  - Workflow
+  - RegulatedDocs
+  - Compliance
+  - Teams
+---
+
 ## Idea 28 — AI Form‑to‑Workflow for Regulated Docs
 
 Exact text (as presented earlier)

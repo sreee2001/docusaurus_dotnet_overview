@@ -1,3 +1,15 @@
+---
+title: "Marketing Asset Request Bot"
+description: "Intake creative briefs, route to designers/writers, auto-acknowledge, track status, and provide Teams updates for marketing ops teams."
+tags:
+  - Marketing
+  - AssetRequest
+  - Brief
+  - Teams
+  - Automation
+  - SLA
+---
+
 ## Idea 18 — Marketing Asset Request Bot
 
 Exact text (as presented earlier)

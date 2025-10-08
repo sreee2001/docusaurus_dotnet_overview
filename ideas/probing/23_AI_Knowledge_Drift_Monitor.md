@@ -1,3 +1,15 @@
+---
+title: "AI Knowledge Drift Monitor"
+description: "Detects stale KB content vs incoming tickets/queries, suggests updates and owners, and helps keep documentation fresh."
+tags:
+  - AI
+  - KnowledgeBase
+  - Drift
+  - Documentation
+  - Support
+  - Automation
+---
+
 ## Idea 23 — AI Knowledge Drift Monitor
 
 Exact text (as presented earlier)

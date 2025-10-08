@@ -1,3 +1,15 @@
+---
+title: "HR Inbox Assistant (Onboarding/Offboarding)"
+description: "Classifies HR emails, automates onboarding/offboarding tasks, posts to Teams, and updates SharePoint checklists for HR teams."
+tags:
+  - HR
+  - Onboarding
+  - Offboarding
+  - Teams
+  - SharePoint
+  - Automation
+---
+
 ## Idea 13 — HR Inbox Assistant (Onboarding/Offboarding)
 
 Exact text (as presented earlier)

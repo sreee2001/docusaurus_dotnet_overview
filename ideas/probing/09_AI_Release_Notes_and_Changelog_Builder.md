@@ -1,3 +1,16 @@
+---
+title: "AI Release Notes + Changelog Builder (PRs/issues to customer-facing notes)"
+description: "Summarize PRs/issues from GitHub/Azure DevOps/Jira into customer-friendly release notes and changelogs. Categorize, highlight, and export to Markdown/HTML."
+tags:
+  - ReleaseNotes
+  - Changelog
+  - AI
+  - GitHub
+  - DevOps
+  - Jira
+  - Automation
+---
+
 ## Idea 9 — AI Release Notes + Changelog Builder (PRs/issues to customer-facing notes)
 
 Exact text (as presented earlier)

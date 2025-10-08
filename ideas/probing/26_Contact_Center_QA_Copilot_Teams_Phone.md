@@ -1,3 +1,15 @@
+---
+title: "Contact Center QA Copilot (Teams Phone)"
+description: "Summarizes calls, scores against QA rubrics, highlights coaching moments, and tracks trends for Teams Phone support centers."
+tags:
+  - ContactCenter
+  - QA
+  - TeamsPhone
+  - Coaching
+  - Automation
+  - Sentiment
+---
+
 ## Idea 26 — Contact Center QA Copilot (Teams Phone)
 
 Exact text (as presented earlier)

@@ -1,3 +1,15 @@
+---
+title: "AI‑Backed SLA Breach Predictor"
+description: "Predicts SLA breaches from ticket metadata, sentiment, and workload; sends early alerts and playbook suggestions for ITSM teams."
+tags:
+  - AI
+  - SLA
+  - BreachPredictor
+  - ITSM
+  - Alerts
+  - Automation
+---
+
 ## Idea 29 — AI‑Backed SLA Breach Predictor
 
 Exact text (as presented earlier)

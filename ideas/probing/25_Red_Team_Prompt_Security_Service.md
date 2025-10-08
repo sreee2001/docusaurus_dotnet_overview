@@ -1,3 +1,15 @@
+---
+title: "Red Team Prompt Security Service"
+description: "Prompt-injection and data-exfil tests, safety probes, reports with fixes and retest gates for LLM security."
+tags:
+  - RedTeam
+  - PromptSecurity
+  - LLM
+  - Security
+  - Audit
+  - Automation
+---
+
 ## Idea 25 — Red Team Prompt Security Service
 
 Exact text (as presented earlier)
